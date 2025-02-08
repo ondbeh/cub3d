@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   init.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 22:13:07 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/08 22:13:07 by obehavka         ###   ########.fr       */
+/*   Created: 2025/02/08 23:04:07 by obehavka          #+#    #+#             */
+/*   Updated: 2025/02/08 23:04:07 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-#define CUB3D_H
+#ifndef INIT_H
+#define INIT_H
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "../libft/inc/libft.h"
 #include "structs.h"
-#include "init.h"
 #include "exit.h"
+#include <stdio.h>
+
+void cub3d_init(t_cub3d *cub3d);
 
 #endif

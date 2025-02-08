@@ -1,14 +1,14 @@
 include srcs.mk
 
 # Name of the library
-NAME		=	cub3d
+NAME		=	cub3D
 
 # Compiler and flags
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror -Wunreachable-code -I.
 DEBUG_FLAGS	=	-g  -fsanitize=address -fcolor-diagnostics -fansi-escape-codes
 RM			=	rm -f
-INCLUDES	=	-I .
+INCLUDES	=	-I ./includes
 
 # Directories
 SRC_DIR		=	src
@@ -31,7 +31,7 @@ endif
 
 # Source files and corresponding object files
 
-OBJS 		= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.o))
+OBJS 		= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 # Rules
 all: $(NAME)
@@ -39,14 +39,14 @@ all: $(NAME)
 # Link object files and libft to create the final executable
 $(NAME): $(MLX42) $(LIBFT) $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_FLAGS) $(MLX42_FLAGS) -lm
-	@echo "Compiling fdf project"
+	@echo "Compiling $(NAME) project"
 
 debug: $(MLX42) $(LIBFT) $(OBJS)
 	@$(CC) $(DEBUG_FLAGS) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_FLAGS) $(MLX42_FLAGS) -lm
-	@echo "Compiling fdf project with debug flags"
+	@echo "Compiling $(NAME) project with debug flags"
 
 # Compile source files into object files in the obj/ folder
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	@echo "Compiling $<"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
@@ -68,21 +68,21 @@ $(MLX42):
 	@if [ ! -d $(MLX42_DIR)/build ]; then mkdir -p $(MLX42_DIR)/build; fi
 	@cd $(MLX42_DIR)/build && cmake .. && make -j4
 
-# Clean object files from both fdf and libft
+# Clean object files from both $(NAME) and libft
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@echo "Deleting libft objects"
 	@$(MAKE) -C $(MLX42_DIR)/build clean
 	@echo "Deleting MLX42 objects"
 	@rm -rf $(OBJ_DIR)
-	@echo "Deleting fdf objects"
+	@echo "Deleting $(NAME) objects"
 
 # Full clean: also remove the executable and libft objects
 fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "Deleting libft.a"
 	@$(RM) $(NAME)
-	@echo "Deleting fdf executable"
+	@echo "Deleting $(NAME) executable"
 
 # Rebuild everything
 re: fclean all

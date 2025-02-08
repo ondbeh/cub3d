@@ -1,3 +1,9 @@
-SRCS		=	main.c
+SRCS		=	main.c \
+				init.c \
+				exit_error.c \
+				exit_success.c \
+				cleanup.c
 
-VPATH		=	src
+VPATH		=	src/ \
+				src/init/ \
+				src/exit/
