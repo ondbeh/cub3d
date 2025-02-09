@@ -28,7 +28,7 @@ static char **map_init(void)
 			exit_error("malloc failed", NULL);
 		j = -1;
 		while (++j < 10)
-			map[i][j] = (i == 0 || j == 0 || i == 9 || j == 9) + '0';
+			map[i][j] = (i == 0 || j == 0 || i == 9 || j == 9 || (i % 3 == 0 && j % 3 == 0)) + '0';
 		i++;
 	}
 
@@ -40,10 +40,14 @@ void cub3d_init(t_cub3d *cub3d)
 	cub3d->mlx = NULL;
 	cub3d->img = NULL;
 	cub3d->map = map_init();
-	cub3d->player.x = 1;
-	cub3d->player.y = 1;
-	cub3d->dir.x = 0;
+	cub3d->map_width = 10;
+	cub3d->map_height = 10;
+	cub3d->player.x = 1.5;
+	cub3d->player.y = 1.5;
+	cub3d->dir.x = 1;
 	cub3d->dir.y = 0;
+	cub3d->plane.x = 0;
+	cub3d->plane.y = 0.66;
 	cub3d->ceiling_color = 0x87CEEBFF;
 	cub3d->floor_color = 0x8B4513FF;
 	mlx_prepare(cub3d);

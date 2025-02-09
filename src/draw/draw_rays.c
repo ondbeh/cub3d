@@ -27,10 +27,10 @@ static void draw_ray(t_cub3d *cub3d, int x, t_direction_hit hit)
         first_pixel = 0;
         last_pixel = cub3d->mlx->height;
     }
-    if (hit.wall_side == WALL_NORTH)
-        color = 0x00DD00FF;
+    if (hit.wall_side == WALL_NORTH || hit.wall_side == WALL_SOUTH)
+        color = NORTH_COLOR;
     else
-        color = 0x22FF22FF;
+        color = OTHER_COLOR;
     while (first_pixel < last_pixel)
     {
         mlx_put_pixel(cub3d->img, x, first_pixel, color);

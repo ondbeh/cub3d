@@ -15,6 +15,7 @@
 
 #include "structs.h"
 #include "exit.h"
+#include <math.h>
 
 void draw_scene(t_cub3d *cub3d);
 void put_floor_ceiling(t_cub3d *cub3d);

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:11:15 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/09 16:10:37 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/09 21:17:10 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void print_map(t_cub3d cub3d)
 		j = 0;
 		while (j < 10)
 		{
-			if (cub3d.player.x == i && cub3d.player.y == j)
+			if ((int)cub3d.player.x == i && (int)cub3d.player.y == j)
 				printf("P");
 			else
 				printf("%c", cub3d.map[i][j]);

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/09 16:44:52 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/09 21:26:24 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ typedef struct s_vector2D
     double y;
 } t_vector2D;
 
+typedef struct s_position
+{
+    int x;
+    int y;
+} t_position;
+
 typedef struct s_cub3d
 {
     char **map;
@@ -30,8 +36,11 @@ typedef struct s_cub3d
     mlx_image_t *img;
     t_vector2D player;
     t_vector2D dir;
+    t_vector2D plane;
     int ceiling_color;
     int floor_color;
+    int map_width;
+    int map_height;
 } t_cub3d;
 
 typedef struct s_direction_hit
