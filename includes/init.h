@@ -16,8 +16,10 @@
 #include "../libft/inc/libft.h"
 #include "structs.h"
 #include "exit.h"
+#include "key_hooks.h"
 #include <stdio.h>
 
 void cub3d_init(t_cub3d *cub3d);
+void mlx_prepare(t_cub3d *cub3d);
 
 #endif

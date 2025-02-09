@@ -52,3 +52,4 @@ Mkfile.old
 dkms.conf
 .vscode/c_cpp_properties.json
 cub3d
+.vscode/settings.json

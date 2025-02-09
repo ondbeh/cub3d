@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
+/*   mlx_preparation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/09 13:31:06 by obehavka         ###   ########.fr       */
+/*   Created: 2025/02/09 13:25:55 by obehavka          #+#    #+#             */
+/*   Updated: 2025/02/09 13:25:55 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTS_H
-#define STRUCTS_H
+#include "init.h"
 
-#include "../MLX42/include/MLX42/MLX42.h"
-#include "defines.h"
-
-typedef struct s_vector2D
+void mlx_prepare(t_cub3d *cub3d)
 {
-    double x;
-    double y;
-} t_vector2D;
-
-typedef struct s_cub3d
-{
-    char **map;
-    mlx_t *mlx;
-    mlx_image_t *img;
-    t_vector2D player;
-    t_vector2D dir;
-} t_cub3d;
-
-#endif
+    cub3d->mlx = mlx_init(SCREEN_WIDTH, SCREEN_HEIGHT, "cub3d", 0);
+    if (!cub3d->mlx)
+        exit_error("mlx_init failed", cub3d);
+    cub3d->img = NULL;
+    mlx_loop_hook(cub3d->mlx, &key_hook_control, cub3d);
+}

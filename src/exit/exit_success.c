@@ -15,5 +15,6 @@
 void exit_success(t_cub3d *cub3d)
 {
     cleanup(cub3d);
+    
     exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:11:15 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/08 22:11:15 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/09 13:55:20 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int main(int argc, char **argv)
 		exit_error("Wrong number of arguments", &cub3d);
 	cub3d_init(&cub3d);
 	print_map(cub3d);
+	mlx_loop(cub3d.mlx);
 	exit_success(&cub3d);
 }

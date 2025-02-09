@@ -37,9 +37,12 @@ static char **map_init(void)
 
 void cub3d_init(t_cub3d *cub3d)
 {
+	cub3d->mlx = NULL;
+	cub3d->img = NULL;
 	cub3d->map = map_init();
 	cub3d->player.x = 1;
 	cub3d->player.y = 1;
 	cub3d->dir.x = 0;
 	cub3d->dir.y = 0;
+	mlx_prepare(cub3d);
 }

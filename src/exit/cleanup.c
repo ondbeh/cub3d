@@ -23,5 +23,9 @@ void cleanup(t_cub3d *cub3d)
         i++;
     }
     free(cub3d->map);
+    if (cub3d->mlx)
+        mlx_terminate(cub3d->mlx);
     cub3d->map = NULL;
+    cub3d->img = NULL;
+    cub3d->mlx = NULL;
 }
