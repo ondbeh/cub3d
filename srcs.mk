@@ -8,7 +8,9 @@ SRCS		=	main.c \
 				draw_scene.c \
 				put_floor_ceiling.c \
 				calculate_rays.c \
-				draw_rays.c
+				draw_rays.c \
+				movement_handlers.c \
+				rotation_handlers.c
 
 VPATH		=	src/ \
 				src/init/ \

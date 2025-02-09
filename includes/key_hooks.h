@@ -15,7 +15,14 @@
 
 #include "structs.h"
 #include "exit.h"
+#include "draw.h"
 
 void key_hook_control(void *par);
+void handle_key_w(t_cub3d *cub3d);
+void handle_key_s(t_cub3d *cub3d);
+void handle_key_a(t_cub3d *cub3d);
+void handle_key_d(t_cub3d *cub3d);
+void handle_key_left(t_cub3d *cub3d);
+void handle_key_right(t_cub3d *cub3d);
 
 #endif
