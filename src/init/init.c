@@ -44,5 +44,7 @@ void cub3d_init(t_cub3d *cub3d)
 	cub3d->player.y = 1;
 	cub3d->dir.x = 0;
 	cub3d->dir.y = 0;
+	cub3d->ceiling_color = 0x87CEEBFF;
+	cub3d->floor_color = 0x8B4513FF;
 	mlx_prepare(cub3d);
 }

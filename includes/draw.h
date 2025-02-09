@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 22:13:07 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/08 22:13:07 by obehavka         ###   ########.fr       */
+/*   Created: 2025/02/09 16:14:02 by obehavka          #+#    #+#             */
+/*   Updated: 2025/02/09 16:14:02 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-#define CUB3D_H
+#ifndef DRAW_H
+#define DRAW_H
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "structs.h"
-#include "init.h"
 #include "exit.h"
-#include "draw.h"
+
+void draw_scene(t_cub3d *cub3d);
+void put_floor_ceiling(t_cub3d *cub3d);
+void calculate_rays(t_cub3d *cub3d, t_direction_hit *hit_array);
+void draw_rays(t_cub3d *cub3d, t_direction_hit *hit_array);
 
 #endif

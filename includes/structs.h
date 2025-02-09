@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/09 13:31:06 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/09 16:44:52 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "../MLX42/include/MLX42/MLX42.h"
 #include "defines.h"
+#include "enums.h"
 
 typedef struct s_vector2D
 {
@@ -29,6 +30,14 @@ typedef struct s_cub3d
     mlx_image_t *img;
     t_vector2D player;
     t_vector2D dir;
+    int ceiling_color;
+    int floor_color;
 } t_cub3d;
+
+typedef struct s_direction_hit
+{
+    double distance;
+    t_wall_side wall_side;
+} t_direction_hit;
 
 #endif
