@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:11:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/09 16:11:39 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:50:14 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ void draw_scene(t_cub3d *cub3d)
     put_floor_ceiling(cub3d);
     calculate_rays(cub3d, hit_array);
     draw_rays(cub3d, hit_array);
+    calculate_fps(cub3d);
     mlx_image_to_window(cub3d->mlx, cub3d->img, 0, 0);
+    mlx_set_instance_depth(cub3d->img->instances, 0);
+    mlx_set_instance_depth(cub3d->fps_image->instances, 1);
 }

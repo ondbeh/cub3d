@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 10:43:37 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:55:20 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ typedef struct s_cub3d
     int floor_color;
     int map_width;
     int map_height;
+    double last_frame_time;
+    mlx_image_t *fps_image;
+
 } t_cub3d;
 
 typedef struct s_direction_hit

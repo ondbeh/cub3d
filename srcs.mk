@@ -11,7 +11,8 @@ SRCS		=	main.c \
 				draw_rays.c \
 				movement_handlers.c \
 				rotation_handlers.c \
-				load_texture.c
+				load_texture.c \
+				calculate_fps.c
 
 VPATH		=	src/ \
 				src/init/ \

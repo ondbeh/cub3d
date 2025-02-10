@@ -6,7 +6,7 @@ NAME		=	cub3D
 # Compiler and flags
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror -Wunreachable-code -I.
-DEBUG_FLAGS	=	-g  -fsanitize=address -fcolor-diagnostics -fansi-escape-codes
+DEBUG_FLAGS	=	-g  -fsanitize=address #-fcolor-diagnostics -fansi-escape-codes
 RM			=	rm -f
 INCLUDES	=	-Iincludes
 
