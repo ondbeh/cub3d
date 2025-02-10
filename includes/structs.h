@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 18:46:33 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:05:25 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_cub3d
 	t_vector2D		player;
 	t_vector2D		dir;
 	t_vector2D		plane;
+	float			height_multiplier;
+	float			rotation_angle;
 	int				ceiling_color;
 	int				floor_color;
 	int				map_width;

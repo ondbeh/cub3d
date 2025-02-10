@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 17:12:06 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 18:46:53 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 22:59:51 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,20 @@ static void	draw_ray(t_cub3d *cub3d, int x, t_direction_hit hit)
 	int	color;
 	int	y;
 
-	line_height = (int)(cub3d->mlx->height / hit.distance);
+	line_height = (int)(cub3d->mlx->height / (cub3d->height_multiplier
+				* hit.distance));
 	first_pixel = cub3d->mlx->height / 2 - line_height / 2;
 	last_pixel = cub3d->mlx->height / 2 + line_height / 2;
-	y = first_pixel;
-	while (y < last_pixel)
+	y = 0;
+	while (y < cub3d->mlx->height)
 	{
-		color = get_color(cub3d, hit, first_pixel, last_pixel, y);
-		if (y >= 0 && y < cub3d->mlx->height)
-			mlx_put_pixel(cub3d->img, x, y, color);
+		if (y < first_pixel)
+			color = cub3d->ceiling_color;
+		else if (y >= last_pixel)
+			color = cub3d->floor_color;
+		else
+			color = get_color(cub3d, hit, first_pixel, last_pixel, y);
+		mlx_put_pixel(cub3d->img, x, y, color);
 		y++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 13:46:19 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 18:46:30 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 22:31:37 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 # include "draw.h"
 # include "exit.h"
 # include "structs.h"
+# include "utils.h"
 
 void	key_hook_control(void *par);
+void	mouse_hook_control(mouse_key_t button, action_t action, modifier_key_t mods, void *par);
+void	scroll_hook_control(double x_delta, double y_delta, void *par);
 void	handle_key_w(t_cub3d *cub3d);
 void	handle_key_s(t_cub3d *cub3d);
 void	handle_key_a(t_cub3d *cub3d);

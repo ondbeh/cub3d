@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:11:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 18:50:59 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:03:24 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	draw_scene(t_cub3d *cub3d)
 	cub3d->img = mlx_new_image(cub3d->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	if (!cub3d->img)
 		exit_error("mlx_new_image failed", cub3d);
-	put_floor_ceiling(cub3d);
 	calculate_rays(cub3d, hit_array);
 	draw_rays(cub3d, hit_array);
 	calculate_fps(cub3d);

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 18:47:31 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:08:34 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	cub3d_init(t_cub3d *cub3d)
 	cub3d->dir.y = 0;
 	cub3d->plane.x = 0;
 	cub3d->plane.y = 0.66;
+	cub3d->height_multiplier = BASE_HEIGHT_MULTIPLIER;
+	cub3d->rotation_angle = BASE_ROTATION_ANGLE;
 	cub3d->ceiling_color = 0x87CEEBFF;
 	cub3d->floor_color = 0x8B4513FF;
 	mlx_prepare(cub3d);
