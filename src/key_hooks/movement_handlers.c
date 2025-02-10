@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:59:04 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/09 21:59:04 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:53:09 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 /*
  * Moves forward (key W).
- * Uses the player's direction (cub3d->dir) and SPEED_COEF to compute the new position.
- * Collision is checked on each axis using a defined collision offset PLAYER_SIZE.
+ * Uses the player's direction (cub3d->dir)
+	and SPEED_COEF to compute the new position.
+ * Collision is checked on each axis using
+	a defined collision offset PLAYER_SIZE.
  */
-void handle_key_w(t_cub3d *cub3d)
+void	handle_key_w(t_cub3d *cub3d)
 {
-	t_vector2D new_pos;
-	t_vector2D offset;
+	t_vector2D	new_pos;
+	t_vector2D	offset;
 
 	new_pos.x = cub3d->player.x + cub3d->dir.x * SPEED_COEF;
 	new_pos.y = cub3d->player.y + cub3d->dir.y * SPEED_COEF;
@@ -40,10 +42,10 @@ void handle_key_w(t_cub3d *cub3d)
  * New position is computed by reversing the player's direction.
  * The collision offset is inverted relative to forward movement.
  */
-void handle_key_s(t_cub3d *cub3d)
+void	handle_key_s(t_cub3d *cub3d)
 {
-	t_vector2D new_pos;
-	t_vector2D offset;
+	t_vector2D	new_pos;
+	t_vector2D	offset;
 
 	new_pos.x = cub3d->player.x - cub3d->dir.x * SPEED_COEF;
 	new_pos.y = cub3d->player.y - cub3d->dir.y * SPEED_COEF;
@@ -60,14 +62,16 @@ void handle_key_s(t_cub3d *cub3d)
 
 /*
  * Strafes left (key A).
- * The left strafe vector is derived as (dir.y, -dir.x) so that a player facing north (0, -1) will move west.
- * Collision is checked on each axis using a defined collision offset PLAYER_SIZE.
+ * The left strafe vector is derived as (dir.y,
+	-dir.x) so that a player facing north (0, -1) will move west.
+ * Collision is checked on each axis using
+	a defined collision offset PLAYER_SIZE.
  */
-void handle_key_a(t_cub3d *cub3d)
+void	handle_key_a(t_cub3d *cub3d)
 {
-	t_vector2D new_pos;
-	t_vector2D offset;
-	t_vector2D strafe;
+	t_vector2D	new_pos;
+	t_vector2D	offset;
+	t_vector2D	strafe;
 
 	strafe.x = cub3d->dir.y;
 	strafe.y = -cub3d->dir.x;
@@ -86,14 +90,16 @@ void handle_key_a(t_cub3d *cub3d)
 
 /*
  * Strafes right (key D).
- * The right strafe vector is derived as (-dir.y, dir.x) so that a player facing north (0, -1) will move east.
- * Collision is checked on each axis using a defined collision offset PLAYER_SIZE.
+ * The right strafe vector is derived as (-dir.y,
+	dir.x) so that a player facing north (0, -1) will move east.
+ * Collision is checked on each axis using
+	a defined collision offset PLAYER_SIZE.
  */
-void handle_key_d(t_cub3d *cub3d)
+void	handle_key_d(t_cub3d *cub3d)
 {
-	t_vector2D new_pos;
-	t_vector2D offset;
-	t_vector2D strafe;
+	t_vector2D	new_pos;
+	t_vector2D	offset;
+	t_vector2D	strafe;
 
 	strafe.x = -cub3d->dir.y;
 	strafe.y = cub3d->dir.x;

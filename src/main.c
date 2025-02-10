@@ -6,16 +6,16 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:11:15 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 08:19:55 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:49:12 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void print_map(t_cub3d cub3d)
+static void	print_map(t_cub3d cub3d)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < 10)
@@ -34,9 +34,9 @@ static void print_map(t_cub3d cub3d)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_cub3d cub3d;
+	t_cub3d	cub3d;
 
 	(void)argv;
 	cub3d.map = NULL;

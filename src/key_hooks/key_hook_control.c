@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook_control.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 13:46:00 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 02:06:18 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:47:49 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

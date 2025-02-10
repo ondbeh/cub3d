@@ -6,18 +6,19 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 15:02:12 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:47:31 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-static char **map_init(void)
+static char	**map_init(void)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
+	char	**map;
 
-	char **map = ft_calloc(11, sizeof(char *));
+	map = ft_calloc(11, sizeof(char *));
 	if (!map)
 		exit_error("malloc failed", NULL);
 	i = 0;
@@ -28,14 +29,14 @@ static char **map_init(void)
 			exit_error("malloc failed", NULL);
 		j = -1;
 		while (++j < 10)
-			map[i][j] = (i == 0 || j == 0 || i == 9 || j == 9 || (i % 3 == 0 && j % 3 == 0)) + '0';
+			map[i][j] = (i == 0 || j == 0 || i == 9 || j == 9 || (i % 3 == 0
+						&& j % 3 == 0)) + '0';
 		i++;
 	}
-
 	return (map);
 }
 
-void cub3d_init(t_cub3d *cub3d)
+void	cub3d_init(t_cub3d *cub3d)
 {
 	cub3d->mlx = NULL;
 	cub3d->img = NULL;
