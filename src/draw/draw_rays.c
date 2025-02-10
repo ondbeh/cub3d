@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 17:12:06 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 11:37:39 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:54:25 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int reverse_color(int color)
 
 static int get_color(t_cub3d *cub3d, t_direction_hit hit, int first_pixel, int last_pixel, int y)
 {
-    double y_ratio;
+    float y_ratio;
     t_position texture_pos;
     int texture_color;
     int *tex_pixels;
@@ -34,7 +34,7 @@ static int get_color(t_cub3d *cub3d, t_direction_hit hit, int first_pixel, int l
     tex_pixels = (int *)cub3d->texture[hit.wall_side]->pixels;
     if (y < 0 || y > cub3d->mlx->height)
         return 0;
-    y_ratio = (double)(y - first_pixel) / (last_pixel - first_pixel);
+    y_ratio = (float)(y - first_pixel) / (last_pixel - first_pixel);
     texture_pos.x = (int)(hit.wall_x * cub3d->texture[hit.wall_side]->width);
     texture_pos.y = (int)(y_ratio * cub3d->texture[hit.wall_side]->height);
     texture_color = tex_pixels[texture_pos.y * cub3d->texture[hit.wall_side]->width + texture_pos.x];

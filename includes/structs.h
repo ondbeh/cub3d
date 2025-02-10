@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 15:55:20 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:59:58 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 typedef struct s_vector2D
 {
-    double x;
-    double y;
+    float x;
+    float y;
 } t_vector2D;
 
 typedef struct s_position
@@ -49,8 +49,8 @@ typedef struct s_cub3d
 
 typedef struct s_direction_hit
 {
-    double distance;
-    double wall_x;
+    float distance;
+    float wall_x;
     t_wall_side wall_side;
 } t_direction_hit;
 

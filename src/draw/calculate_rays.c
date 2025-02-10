@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:52:45 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 08:41:28 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:54:25 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,13 @@ static void calculate_distance(t_cub3d *cub3d, t_direction_hit *hit, t_vector2D 
 
 void calculate_rays(t_cub3d *cub3d, t_direction_hit *hit_array)
 {
-    double camera_x;
+    float camera_x;
     t_vector2D ray_dir;
 
     int i = 0;
     while (i < SCREEN_WIDTH)
     {
-        camera_x = 2 * i / (double)SCREEN_WIDTH - 1;
+        camera_x = 2 * i / (float)SCREEN_WIDTH - 1;
         ray_dir.x = cub3d->dir.x + cub3d->plane.x * camera_x;
         ray_dir.y = cub3d->dir.y + cub3d->plane.y * camera_x;
         calculate_distance(cub3d, &hit_array[i], ray_dir);
