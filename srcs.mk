@@ -10,7 +10,8 @@ SRCS		=	main.c \
 				calculate_rays.c \
 				draw_rays.c \
 				movement_handlers.c \
-				rotation_handlers.c
+				rotation_handlers.c \
+				load_texture.c
 
 VPATH		=	src/ \
 				src/init/ \

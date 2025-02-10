@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:52:45 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/09 16:52:45 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 08:41:28 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,16 @@ static void calculate_distance(t_cub3d *cub3d, t_direction_hit *hit, t_vector2D 
             hit_wall = 1;
     }
     if (hit->wall_side == WALL_NORTH || hit->wall_side == WALL_SOUTH)
+    {
         hit->distance = (curr_pos.y - cub3d->player.y + (1 - step.y) / 2) / ray_dir.y;
+        hit->wall_x = cub3d->player.x + hit->distance * ray_dir.x;
+    }
     else
+    {
         hit->distance = (curr_pos.x - cub3d->player.x + (1 - step.x) / 2) / ray_dir.x;
+        hit->wall_x = cub3d->player.y + hit->distance * ray_dir.y;
+    }
+    hit->wall_x -= floor(hit->wall_x);
 }
 
 void calculate_rays(t_cub3d *cub3d, t_direction_hit *hit_array)

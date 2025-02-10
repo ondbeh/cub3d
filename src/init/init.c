@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/08 23:02:57 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:49:45 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void cub3d_init(t_cub3d *cub3d)
 	cub3d->mlx = NULL;
 	cub3d->img = NULL;
 	cub3d->map = map_init();
+	load_textures(cub3d);
 	cub3d->map_width = 10;
 	cub3d->map_height = 10;
 	cub3d->player.x = 1.5;

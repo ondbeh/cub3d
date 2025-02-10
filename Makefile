@@ -101,6 +101,14 @@ fclean: clean
 # Rebuild everything
 re: fclean all
 
+# Clean cub3d objects
+cleancub:
+	@rm -rf $(OBJ_DIR)
+	@echo "Deleting $(NAME) objects"
+
+# Rebuild cub3d
+recub: cleancub all
+
 # Norm rule
 norm:
 	@echo "Norminette for libft and cub3d:"
