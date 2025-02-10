@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 13:30:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 10:47:38 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:35:45 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@
 #define TEXTURE_SOUTH "textures/texture_2.png"
 #define TEXTURE_EAST "textures/texture_3.png"
 #define TEXTURE_WEST "textures/texture_4.png"
-
 
 #endif

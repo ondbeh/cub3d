@@ -6,11 +6,23 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 17:12:06 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 10:53:35 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:37:39 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
+
+static int reverse_color(int color)
+{
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+
+    r = (color & 0x000000FF) >> 0;
+    g = (color & 0x0000FF00) >> 8;
+    b = (color & 0x00FF0000) >> 16;
+    return (r << 24) | (g << 16) | (b << 8) | 0x000000FF;
+}
 
 static int get_color(t_cub3d *cub3d, t_direction_hit hit, int first_pixel, int last_pixel, int y)
 {
@@ -26,7 +38,7 @@ static int get_color(t_cub3d *cub3d, t_direction_hit hit, int first_pixel, int l
     texture_pos.x = (int)(hit.wall_x * cub3d->texture[hit.wall_side]->width);
     texture_pos.y = (int)(y_ratio * cub3d->texture[hit.wall_side]->height);
     texture_color = tex_pixels[texture_pos.y * cub3d->texture[hit.wall_side]->width + texture_pos.x];
-    printf("texture_color: %x\n", texture_color);
+    texture_color = reverse_color(texture_color);
     return texture_color;
 }
 
