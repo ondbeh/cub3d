@@ -8,7 +8,7 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror -Wunreachable-code -I.
 DEBUG_FLAGS	=	-g  -fsanitize=address -fcolor-diagnostics -fansi-escape-codes
 RM			=	rm -f
-INCLUDES	=	-I ./includes
+INCLUDES	=	-Iincludes
 
 # Directories
 SRC_DIR		=	src
@@ -19,14 +19,28 @@ LIBFT_FLAGS	=	-L$(LIBFT_DIR) -lft
 MLX42_DIR	=	./MLX42
 MLX42		=	$(MLX42_DIR)/build/libmlx42.a
 
+
+
 # Detect the operating system
 UNAME_S := $(shell uname -s)
 
-# Set MLX42_FLAGS based on the operating system
+# Set MLX42_FLAGS based on the operating system, also catch MAC arm processors
 ifeq ($(UNAME_S), Linux)
-    MLX42_FLAGS = -L$(MLX42_DIR)/build -lmlx42 -lGL -lX11 -lXrandr -lXi -lXxf86vm -lXinerama -lXcursor -lglfw
+    MLX42_FLAGS = -L$(MLX42_DIR)/build -lmlx42 -lGL -lX11 -lXrandr -lXi -lXxf86vm -lXinerama -lXcursor
 else ifeq ($(UNAME_S), Darwin)
-    MLX42_FLAGS = -L$(MLX42_DIR)/build -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -lglfw
+    MLX42_FLAGS = -L$(MLX42_DIR)/build -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit
+endif
+
+GLFW_PATH_HOMEBREW_ARM = /opt/homebrew/opt/glfw
+GLFW_PATH_HOMEBREW_INTEL = /usr/local/opt/glfw
+GLFW_PATH_SYSTEM = /usr/local
+
+ifneq (,$(wildcard $(GLFW_PATH_HOMEBREW_ARM)/lib/libglfw.dylib))
+    GLFW_PATH = $(GLFW_PATH_HOMEBREW_ARM)
+else ifneq (,$(wildcard $(GLFW_PATH_HOMEBREW_INTEL)/lib/libglfw.dylib))
+    GLFW_PATH = $(GLFW_PATH_HOMEBREW_INTEL)
+else
+    GLFW_PATH = $(GLFW_PATH_SYSTEM)
 endif
 
 # Source files and corresponding object files
@@ -38,11 +52,11 @@ all: $(NAME)
 
 # Link object files and libft to create the final executable
 $(NAME): $(MLX42) $(LIBFT) $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_FLAGS) $(MLX42_FLAGS) -lm
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_FLAGS) $(MLX42_FLAGS) -lm -L$(GLFW_PATH)/lib -lglfw
 	@echo "Compiling $(NAME) project"
 
 debug: $(MLX42) $(LIBFT) $(OBJS)
-	@$(CC) $(DEBUG_FLAGS) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_FLAGS) $(MLX42_FLAGS) -lm
+	@$(CC) $(DEBUG_FLAGS) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_FLAGS) $(MLX42_FLAGS) -lm -L$(GLFW_PATH)/lib -lglfw
 	@echo "Compiling $(NAME) project with debug flags"
 
 # Compile source files into object files in the obj/ folder
