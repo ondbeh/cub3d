@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/11 11:43:24 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/11 23:05:37 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	cub3d_init(t_cub3d *cub3d)
 	cub3d->fps_image = NULL;
 	cub3d->minimap_image = NULL;
 	cub3d->minimap_maximized = false;
+	cub3d->cursor = NULL;
 	cub3d->map = map_init();
 	load_textures(cub3d);
 	cub3d->map_width = 10;
