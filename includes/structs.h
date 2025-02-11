@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 23:05:25 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:48:17 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_cub3d
 	mlx_texture_t	*texture[4];
 	mlx_t			*mlx;
 	mlx_image_t		*img;
+	mlx_image_t		*minimap_image;
+	bool			minimap_maximized;
 	t_vector2D		player;
 	t_vector2D		dir;
 	t_vector2D		plane;

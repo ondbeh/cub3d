@@ -13,7 +13,8 @@ SRCS		=	main.c \
 				load_texture.c \
 				calculate_fps.c \
 				mouse_hook_control.c \
-				vector_size.c
+				vector_size.c \
+				minimap.c \
 
 VPATH		=	src/ \
 				src/init/ \
