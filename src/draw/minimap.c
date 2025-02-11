@@ -46,12 +46,19 @@ static void	draw_minimap(t_cub3d *cub3d)
 
 void	create_minimap(t_cub3d *cub3d)
 {
+	static bool is_maximized = false;
 	t_position mm_size;
 	t_position mm_position;
 
-	if (!cub3d->minimap_image)
+	if (!cub3d->minimap_image || is_maximized != cub3d->minimap_maximized)
 	{
-		mm_size = (t_position){cub3d->mlx->width / 5, cub3d->mlx->height / 5};
+		if (cub3d->minimap_image)
+			mlx_delete_image(cub3d->mlx, cub3d->minimap_image);
+		if (cub3d->minimap_maximized)
+			mm_size = (t_position){cub3d->mlx->width, cub3d->mlx->height};
+		else
+			mm_size = (t_position){cub3d->mlx->width / 5, cub3d->mlx->height
+				/ 5};
 		cub3d->minimap_image = mlx_new_image(cub3d->mlx, mm_size.x, mm_size.y);
 		if (!cub3d->minimap_image)
 			exit_error("mlx_new_image failed", cub3d);
@@ -60,6 +67,7 @@ void	create_minimap(t_cub3d *cub3d)
 			cub3d->mlx->height - mm_size.y};
 		mlx_image_to_window(cub3d->mlx, cub3d->minimap_image, mm_position.x,
 			mm_position.y);
+		is_maximized = cub3d->minimap_maximized;
 	}
 	else
 		draw_minimap(cub3d);
