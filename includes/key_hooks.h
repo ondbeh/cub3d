@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 13:46:19 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/11 22:08:56 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/15 12:43:38 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	handle_key_w(t_cub3d *cub3d);
 void	handle_key_s(t_cub3d *cub3d);
 void	handle_key_a(t_cub3d *cub3d);
 void	handle_key_d(t_cub3d *cub3d);
-void	handle_key_left(t_cub3d *cub3d);
-void	handle_key_right(t_cub3d *cub3d);
+void	rotate_left(t_cub3d *cub3d, float rotation_multiplier);
+void	rotate_right(t_cub3d *cub3d, float rotation_multiplier);
 
 #endif

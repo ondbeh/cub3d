@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   key_hook_control.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2025/02/09 13:46:00 by obehavka          #+#    #+#             */
 /*   Updated: 2025/02/11 22:00:08 by obehavka         ###   ########.fr       */
 /*                                                                            */
@@ -14,19 +17,20 @@
 
 bool	handle_mouse_movement(t_cub3d *cub3d)
 {
-	int	x;
-	int	y;
+	float	rotation_multiplier;
+	int		x;
+	int		y;
 
 	mlx_get_mouse_pos(cub3d->mlx, &x, &y);
-	if (x - SCREEN_WIDTH / 2 > 3)
+	rotation_multiplier = fabs((x - SCREEN_WIDTH / 2) / 100.0);
+	if (rotation_multiplier > 1)
+		rotation_multiplier = 1;
+	if (rotation_multiplier > 0.001)
 	{
-		handle_key_right(cub3d);
-		mlx_set_mouse_pos(cub3d->mlx, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-		return (true);
-	}
-	else if (x - SCREEN_WIDTH / 2 < -3)
-	{
-		handle_key_left(cub3d);
+		if (x - SCREEN_WIDTH / 2 > 0)
+			rotate_right(cub3d, rotation_multiplier);
+		else if (x - SCREEN_WIDTH / 2 < 0)
+			rotate_left(cub3d, rotation_multiplier);
 		mlx_set_mouse_pos(cub3d->mlx, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 		return (true);
 	}
@@ -53,9 +57,9 @@ void	loop_hook_control(void *par)
 	if (!mouse_moved)
 	{
 		if (mlx_is_key_down(cub3d->mlx, MLX_KEY_LEFT))
-			handle_key_left(cub3d);
+			rotate_left(cub3d, 1);
 		else if (mlx_is_key_down(cub3d->mlx, MLX_KEY_RIGHT))
-			handle_key_right(cub3d);
+			rotate_right(cub3d, 1);
 	}
 	draw_scene(cub3d);
 }

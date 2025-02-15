@@ -6,15 +6,15 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 13:30:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/11 22:09:25 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/15 12:43:45 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 
-# define SCREEN_WIDTH 900
-# define SCREEN_HEIGHT 600
+# define SCREEN_WIDTH 1920
+# define SCREEN_HEIGHT 1080
 # define NORTH_COLOR 0x00DD00FF
 # define OTHER_COLOR 0x22FF22FF
 # define SPEED_COEF 0.075

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:11:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/11 11:06:10 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/15 12:45:19 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,4 @@ void	draw_scene(t_cub3d *cub3d)
 	draw_rays(cub3d, hit_array);
 	create_minimap(cub3d);
 	calculate_fps(cub3d);
-	// mlx_image_to_window(cub3d->mlx, cub3d->minimap_image, 0, 0);
-	// mlx_set_instance_depth(cub3d->minimap_image->instances, 0);
-	// printf("fps drawn\n");
 }
