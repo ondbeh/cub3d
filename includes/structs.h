@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/11 23:04:05 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:54:47 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "defines.h"
 # include "enums.h"
-
+# include "libft.h"
 typedef struct s_vector2D
 {
 	float				x;
@@ -32,6 +32,7 @@ typedef struct s_position
 typedef struct s_cub3d
 {
 	char				**map;
+	t_list				*map_lines;
 	mlx_texture_t		*texture[4];
 	mlx_t				*mlx;
 	mlx_image_t			*img;
@@ -58,5 +59,13 @@ typedef struct s_direction_hit
 	float				wall_x;
 	t_wall_side			wall_side;
 }						t_direction_hit;
+
+typedef struct s_textures
+{
+	char				*north;
+	char				*south;
+	char				*east;
+	char				*west;
+}						t_textures;
 
 #endif

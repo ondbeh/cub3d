@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   free_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 23:04:07 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 13:52:59 by kmuhlbau         ###   ########.fr       */
+/*   Created: 2025/02/18 13:44:29 by kmuhlbau          #+#    #+#             */
+/*   Updated: 2025/02/18 13:44:41 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
+#include "utils.h"
 
-# include "../libft/inc/libft.h"
-# include "exit.h"
-# include "key_hooks.h"
-# include "parsing.h"
-# include "structs.h"
-# include <stdio.h>
+void	free_split(char **split)
+{
+	int	i;
 
-void	cub3d_init(t_cub3d *cub3d);
-void	mlx_prepare(t_cub3d *cub3d);
-void	load_textures(t_cub3d *cub3d, t_textures textures);
-
-#endif
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}

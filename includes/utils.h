@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025/02/10 22:25:29 by obehavka          #+#    #+#             */
 /*   Updated: 2025/02/10 22:25:29 by obehavka         ###   ########.fr       */
 /*                                                                            */
@@ -15,8 +18,11 @@
 
 # include "structs.h"
 # include <math.h>
+# include <stdlib.h>
 
 float	vector_size(t_vector2D vector);
 void	vector_set_size(t_vector2D *vector, float size);
+void	free_split(char **split);
+int		ft_isspace(char c);
 
 #endif

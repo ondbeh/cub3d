@@ -8,7 +8,7 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror -Wunreachable-code -I. -O3 -Ofast
 DEBUG_FLAGS	=	-g  -fsanitize=address #-fcolor-diagnostics -fansi-escape-codes
 RM			=	rm -f
-INCLUDES	=	-Iincludes
+INCLUDES	=	-Iincludes -Ilibft/inc
 
 # Directories
 SRC_DIR		=	src
@@ -46,6 +46,8 @@ endif
 # Source files and corresponding object files
 
 OBJS 		= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS))
+
+.DEFAULT_GOAL = all
 
 # Rules
 all: $(NAME)

@@ -25,10 +25,10 @@ static mlx_texture_t	*load_texture(char *path)
 	return (texture);
 }
 
-void	load_textures(t_cub3d *cub3d)
+void	load_textures(t_cub3d *cub3d, t_textures textures)
 {
-	cub3d->texture[WALL_NORTH] = load_texture(TEXTURE_NORTH);
-	cub3d->texture[WALL_SOUTH] = load_texture(TEXTURE_SOUTH);
-	cub3d->texture[WALL_EAST] = load_texture(TEXTURE_EAST);
-	cub3d->texture[WALL_WEST] = load_texture(TEXTURE_WEST);
+	cub3d->texture[WALL_NORTH] = load_texture(textures.north);
+	cub3d->texture[WALL_SOUTH] = load_texture(textures.south);
+	cub3d->texture[WALL_EAST] = load_texture(textures.east);
+	cub3d->texture[WALL_WEST] = load_texture(textures.west);
 }

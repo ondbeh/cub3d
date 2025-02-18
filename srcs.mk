@@ -16,11 +16,15 @@ SRCS		=	main.c \
 				loop_hook_control.c \
 				vector_size.c \
 				minimap.c \
-
+				parse_file.c \
+				validation.c \
+				ft_isspace.c \
+				free_split.c
 
 VPATH		=	src/ \
 				src/init/ \
 				src/exit/ \
 				src/key_hooks/ \
 				src/draw/ \
-				src/utils/
+				src/utils/ \
+				src/parsing/
