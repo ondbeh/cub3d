@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 15:45:32 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:00:28 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,6 @@ void	cub3d_init(t_cub3d *cub3d)
 	printf("textures: %s, %s, %s, %s\n", textures.north, textures.south,
 		textures.west, textures.east);
 	load_textures(cub3d, textures);
-	cub3d->dir.x = -1;
-	cub3d->dir.y = 0;
-	cub3d->player.x = 4.5;
-	cub3d->player.y = 5.5;
 	cub3d->ceiling_color = 0x87CEEBFF;
 	cub3d->floor_color = 0x8B4513FF;
 	print_cub_struct(cub3d);

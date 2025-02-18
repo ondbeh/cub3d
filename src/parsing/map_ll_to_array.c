@@ -6,11 +6,35 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:50:58 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/02/18 16:34:54 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:06:00 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+
+void	set_direction(t_cub3d *cub3d, char c)
+{
+	cub3d->dir.x = 0;
+	cub3d->dir.y = 0;
+	cub3d->plane.x = 0;
+	cub3d->plane.y = 0;
+	if (c == 'N')
+		cub3d->dir.y = -1;
+	else if (c == 'S')
+		cub3d->dir.y = 1;
+	else if (c == 'E')
+		cub3d->dir.x = 1;
+	else if (c == 'W')
+		cub3d->dir.x = -1;
+	if (c == 'N')
+		cub3d->plane.x = 0.66;
+	else if (c == 'S')
+		cub3d->plane.x = -0.66;
+	else if (c == 'E')
+		cub3d->plane.y = 0.66;
+	else if (c == 'W')
+		cub3d->plane.y = -0.66;
+}
 
 static void	check_map_line(t_cub3d *cub3d, int i)
 {
@@ -22,9 +46,10 @@ static void	check_map_line(t_cub3d *cub3d, int i)
 		if (cub3d->map[i][j] == 'N' || cub3d->map[i][j] == 'S'
 			|| cub3d->map[i][j] == 'E' || cub3d->map[i][j] == 'W')
 		{
+			cub3d->player.x = j + 0.5;
+			cub3d->player.y = i + 0.5;
+			set_direction(cub3d, cub3d->map[i][j]);
 			cub3d->map[i][j] = '0';
-			cub3d->player.x = i + 0.5;
-			cub3d->player.y = j + 0.5;
 		}
 		j++;
 	}
