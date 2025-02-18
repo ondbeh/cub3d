@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_ll_to_array.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:50:58 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/02/18 17:06:00 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:26:02 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
