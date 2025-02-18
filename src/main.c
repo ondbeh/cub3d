@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:11:15 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 18:49:12 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:09:26 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	print_map(t_cub3d cub3d)
 	int	j;
 
 	i = 0;
-	while (i < 10)
+	while (i < cub3d.map_height)
 	{
 		j = 0;
-		while (j < 10)
+		while (j < cub3d.map_width)
 		{
 			if ((int)cub3d.player.x == i && (int)cub3d.player.y == j)
 				printf("P");

@@ -19,8 +19,8 @@ SRCS		=	main.c \
 				parse_file.c \
 				validation.c \
 				ft_isspace.c \
-				free_split.c
-
+				free_split.c \
+				map_ll_to_array.c
 VPATH		=	src/ \
 				src/init/ \
 				src/exit/ \

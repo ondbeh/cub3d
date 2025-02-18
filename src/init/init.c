@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 14:37:42 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:45:32 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,22 @@ void	print_cub_struct(t_cub3d *cub3d)
 	}
 }
 
+static void	get_map_dimensions(t_cub3d *cub3d)
+{
+	t_list *current = cub3d->map_lines;
+	int		map_width = 0;
+	int		map_height = 0;
+	while (current)
+	{
+		if (ft_strlen(current->content) > map_width)
+			map_width = ft_strlen(current->content);
+		current = current->next;
+		map_height++;
+	}
+	cub3d->map_width = map_width;
+	cub3d->map_height = map_height;
+}
+
 void	cub3d_init(t_cub3d *cub3d)
 {
 	t_textures	textures;
@@ -90,15 +106,16 @@ void	cub3d_init(t_cub3d *cub3d)
 	set_default_values(cub3d);
 	// check map is valid and parsed into multi-dimensional array cub3d->map
 	parse_file(cub3d, &textures, "map.cub");
+	get_map_dimensions(cub3d);
+	print_cub_struct(cub3d);
+	map_ll_to_array(cub3d);
 	printf("textures: %s, %s, %s, %s\n", textures.north, textures.south,
 		textures.west, textures.east);
 	load_textures(cub3d, textures);
-	cub3d->map_width = 10;
-	cub3d->map_height = 10;
-	cub3d->player.x = 2.5;
-	cub3d->player.y = 2.5;
-	cub3d->dir.x = 1;
+	cub3d->dir.x = -1;
 	cub3d->dir.y = 0;
+	cub3d->player.x = 4.5;
+	cub3d->player.y = 5.5;
 	cub3d->ceiling_color = 0x87CEEBFF;
 	cub3d->floor_color = 0x8B4513FF;
 	print_cub_struct(cub3d);
