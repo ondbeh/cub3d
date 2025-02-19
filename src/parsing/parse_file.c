@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:49:35 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/02/19 14:33:12 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:48:50 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ static int	is_map_line(char *line)
 	return (*line == '1' || *line == '0');
 }
 
-static void	parse_color(int *color_array, char *color_str, t_cub3d *cub3d)
+static int	parse_color(char *color_str, t_cub3d *cub3d)
 {
 	char	**rgb;
 	int		i;
+	int		color_array[3];
 
 	rgb = ft_split(color_str, ',');
 	if (!rgb)
@@ -39,6 +40,7 @@ static void	parse_color(int *color_array, char *color_str, t_cub3d *cub3d)
 	if (i != 3)
 		exit_error("Invalid color format", cub3d);
 	free_split(rgb);
+	return (color_array[0] << 24 | color_array[1] << 16 | color_array[2] << 8 | 0xFF);
 }
 
 static void	parse_texture_or_color(t_cub3d *cub3d, t_textures *textures,
@@ -67,9 +69,9 @@ static void	parse_texture_or_color(t_cub3d *cub3d, t_textures *textures,
 	else if (ft_strncmp(split[0], "EA", 3) == 0)
 		textures->east = ft_strdup(split[1]);
 	else if (ft_strncmp(split[0], "F", 2) == 0)
-		parse_color(&cub3d->floor_color, split[1], cub3d);
+		cub3d->floor_color = parse_color(split[1], cub3d);
 	else if (ft_strncmp(split[0], "C", 2) == 0)
-		parse_color(&cub3d->ceiling_color, split[1], cub3d);
+		cub3d->ceiling_color = parse_color(split[1], cub3d);
 	free_split(split);
 }
 

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:02:23 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 16:03:04 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:39:32 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	loop_hook_control(void *par)
 	if (!mouse_moved)
 	{
 		if (mlx_is_key_down(cub3d->mlx, MLX_KEY_LEFT))
-			rotate_left(cub3d, 1);
+			rotate_left(cub3d, BUTTON_TURNING_COEF);
 		else if (mlx_is_key_down(cub3d->mlx, MLX_KEY_RIGHT))
-			rotate_right(cub3d, 1);
+			rotate_right(cub3d, BUTTON_TURNING_COEF);
 	}
 	draw_scene(cub3d);
 }

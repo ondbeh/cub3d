@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 13:54:47 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:19:40 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct s_cub3d
 	int					floor_color;
 	int					map_width;
 	int					map_height;
-	double				last_frame_time;
 	mlx_image_t			*fps_image;
 
 }						t_cub3d;

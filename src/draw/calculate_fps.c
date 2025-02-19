@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 14:44:15 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 14:44:15 by obehavka         ###   ########.fr       */
+/*   Created: 2025/02/19 17:26:40 by obehavka          #+#    #+#             */
+/*   Updated: 2025/02/19 17:26:45 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 void	calculate_fps(t_cub3d *cub3d)
 {
-	double	current_time;
 	double	delta_time;
 	char	*fps;
 	char	*fps_text;
 
-	current_time = mlx_get_time();
-	delta_time = (current_time - cub3d->last_frame_time) * 1000;
+	delta_time = cub3d->mlx->delta_time;
 	if (delta_time > 0)
 	{
-		fps = ft_itoa((int)(1000 / (int)delta_time));
+		fps = ft_itoa((int)(1 / delta_time));
 		fps_text = ft_strjoin("FPS: ", fps);
 		if (cub3d->fps_image)
 			mlx_delete_image(cub3d->mlx, cub3d->fps_image);
@@ -33,5 +31,4 @@ void	calculate_fps(t_cub3d *cub3d)
 		free(fps);
 		free(fps_text);
 	}
-	cub3d->last_frame_time = current_time;
 }

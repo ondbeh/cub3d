@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/19 15:59:46 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:20:58 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static void	set_default_values(t_cub3d *cub3d)
 {
 	cub3d->mlx = NULL;
 	cub3d->img = NULL;
-	cub3d->last_frame_time = 0;
 	cub3d->fps_image = NULL;
 	cub3d->minimap_image = NULL;
 	cub3d->minimap_maximized = false;
