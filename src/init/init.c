@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 17:00:28 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:08:54 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,10 @@
 // 	}
 // 	return (map);
 // }
-
-static void	set_default_values(t_cub3d *cub3d)
-{
-	cub3d->mlx = NULL;
-	cub3d->img = NULL;
-	cub3d->last_frame_time = 0;
-	cub3d->fps_image = NULL;
-	cub3d->minimap_image = NULL;
-	cub3d->minimap_maximized = false;
-	cub3d->cursor = NULL;
-	cub3d->plane.x = 0;
-	cub3d->plane.y = 0.66;
-	cub3d->height_multiplier = BASE_HEIGHT_MULTIPLIER;
-	cub3d->rotation_angle = BASE_ROTATION_ANGLE;
-}
-
 void	print_cub_struct(t_cub3d *cub3d)
 {
+	t_list	*current;
+
 	printf("cub3d->map_width: %d\n", cub3d->map_width);
 	printf("cub3d->map_height: %d\n", cub3d->map_height);
 	printf("cub3d->player.x: %f\n", cub3d->player.x);
@@ -73,7 +59,7 @@ void	print_cub_struct(t_cub3d *cub3d)
 	printf("cub3d->height_multiplier: %f\n", cub3d->height_multiplier);
 	printf("cub3d->rotation_angle: %f\n", cub3d->rotation_angle);
 	// print ll map
-	t_list *current = cub3d->map_lines;
+	current = cub3d->map_lines;
 	while (current)
 	{
 		printf("%s\n", current->content);
@@ -81,11 +67,36 @@ void	print_cub_struct(t_cub3d *cub3d)
 	}
 }
 
+static void	set_default_values(t_cub3d *cub3d)
+{
+	cub3d->mlx = NULL;
+	cub3d->img = NULL;
+	cub3d->last_frame_time = 0;
+	cub3d->fps_image = NULL;
+	cub3d->minimap_image = NULL;
+	cub3d->minimap_maximized = false;
+	cub3d->cursor = NULL;
+	cub3d->plane.x = 0;
+	cub3d->plane.y = 0.66;
+	cub3d->player.x = -1;
+	cub3d->player.y = -1;
+	cub3d->height_multiplier = BASE_HEIGHT_MULTIPLIER;
+	cub3d->rotation_angle = BASE_ROTATION_ANGLE;
+	cub3d->map = NULL;
+	cub3d->map_lines = NULL;
+	cub3d->ceiling_color = 0;
+	cub3d->floor_color = 0;
+}
+
 static void	get_map_dimensions(t_cub3d *cub3d)
 {
-	t_list *current = cub3d->map_lines;
-	int		map_width = 0;
-	int		map_height = 0;
+	t_list	*current;
+	int		map_width;
+	int		map_height;
+
+	current = cub3d->map_lines;
+	map_width = 0;
+	map_height = 0;
 	while (current)
 	{
 		if (ft_strlen(current->content) > map_width)
@@ -103,17 +114,21 @@ void	cub3d_init(t_cub3d *cub3d)
 
 	textures = (t_textures){NULL, NULL, NULL, NULL};
 	cub3d->map_lines = NULL;
+	cub3d->ceiling_color = 0x87CEEBFF;
+	cub3d->floor_color = 0x8B4513FF;
 	set_default_values(cub3d);
 	// check map is valid and parsed into multi-dimensional array cub3d->map
 	parse_file(cub3d, &textures, "map.cub");
-	get_map_dimensions(cub3d);
-	print_cub_struct(cub3d);
-	map_ll_to_array(cub3d);
 	printf("textures: %s, %s, %s, %s\n", textures.north, textures.south,
 		textures.west, textures.east);
 	load_textures(cub3d, textures);
-	cub3d->ceiling_color = 0x87CEEBFF;
-	cub3d->floor_color = 0x8B4513FF;
+	get_map_dimensions(cub3d);
+	print_cub_struct(cub3d);
+	map_ll_to_array(cub3d);
+	if (!validate_map_and_textures(cub3d, &textures))
+		exit_error("Invalid map configuration", cub3d);
+	printf("textures: %s, %s, %s, %s\n", textures.north, textures.south,
+		textures.west, textures.east);
 	print_cub_struct(cub3d);
 	mlx_prepare(cub3d);
 }

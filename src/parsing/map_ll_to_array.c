@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_ll_to_array.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:50:58 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/02/18 17:26:02 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:07:50 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,28 @@ void	set_direction(t_cub3d *cub3d, char c)
 		cub3d->plane.y = -0.66;
 }
 
-static void	check_map_line(t_cub3d *cub3d, int i)
+static int	check_map_line(t_cub3d *cub3d, int i)
 {
 	int	j;
 
 	j = 0;
 	while (cub3d->map[i][j])
 	{
-		if (cub3d->map[i][j] == 'N' || cub3d->map[i][j] == 'S'
-			|| cub3d->map[i][j] == 'E' || cub3d->map[i][j] == 'W')
+		if ((cub3d->map[i][j] == 'N' || cub3d->map[i][j] == 'S'
+				|| cub3d->map[i][j] == 'E' || cub3d->map[i][j] == 'W')
+			&& (cub3d->player.x == -1 || cub3d->player.y == -1))
 		{
 			cub3d->player.x = j + 0.5;
 			cub3d->player.y = i + 0.5;
 			set_direction(cub3d, cub3d->map[i][j]);
 			cub3d->map[i][j] = '0';
 		}
+		else if (cub3d->map[i][j] == 'N' || cub3d->map[i][j] == 'S'
+			|| cub3d->map[i][j] == 'E' || cub3d->map[i][j] == 'W')
+			return (0);
 		j++;
 	}
+	return (1);
 }
 
 void	map_ll_to_array(t_cub3d *cub3d)
@@ -73,7 +78,8 @@ void	map_ll_to_array(t_cub3d *cub3d)
 		if (!cub3d->map[i])
 			exit_error("malloc failed", cub3d);
 		ft_strlcpy(cub3d->map[i], line, cub3d->map_width + 1);
-		check_map_line(cub3d, i);
+		if (!check_map_line(cub3d, i))
+			exit_error("Invalid map line", cub3d);
 		i++;
 		current = current->next;
 	}

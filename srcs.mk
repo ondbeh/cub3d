@@ -20,7 +20,9 @@ SRCS		=	main.c \
 				validation.c \
 				ft_isspace.c \
 				free_split.c \
-				map_ll_to_array.c
+				map_ll_to_array.c \
+				flood_fill_and_bounds_check.c
+
 VPATH		=	src/ \
 				src/init/ \
 				src/exit/ \

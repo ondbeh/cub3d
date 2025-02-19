@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:49:35 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/02/18 14:19:10 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:33:12 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,5 @@ void	parse_file(t_cub3d *cub3d, t_textures *textures, char *data_file)
 		free(line);
 		line = get_next_line(fd);
 	}
-	// if (!validate_map_and_textures(cub3d, &textures))
-	// 	exit_error("Invalid map configuration", cub3d);
 	close(fd);
 }
