@@ -1,0 +1,104 @@
+{
+   X11_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libX11.so*
+}
+
+{
+   GLFW_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libglfw.so*
+}
+
+{
+   LLVM_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libLLVM*.so*
+}
+
+{
+   MLX_headless_leaks
+   Memcheck:Leak
+   ...
+   fun:mlx_init
+}
+{
+   GLFW_window_creation_leaks
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   ...
+   obj:*/libglfw.so*
+   ...
+   fun:glfwCreateWindow
+}
+{
+   dl_invalid_reads
+   Memcheck:Addr8
+   fun:strncmp
+   fun:is_dst
+   ...
+   obj:/lib/x86_64-linux-gnu/ld-linux-x86-64.so*
+}
+
+{
+   libz3_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libz3.so*
+}
+
+{
+   dl_loader_leaks
+   Memcheck:Leak
+   ...
+   obj:/lib/x86_64-linux-gnu/ld-linux-x86-64.so*
+}
+
+{
+   libstdcpp_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libstdc++.so*
+}
+
+{
+   dlopen_leaks
+   Memcheck:Leak
+   ...
+   fun:dlopen*
+}
+{
+   dl_strncmp_invalid_read
+   Memcheck:Addr8
+   fun:strncmp
+   fun:is_dst
+   obj:/lib/x86_64-linux-gnu/ld-linux-x86-64.so*
+}
+
+{
+   dl_strdup_leaks
+   Memcheck:Leak
+   fun:malloc
+   fun:strdup
+   obj:/lib/x86_64-linux-gnu/ld-linux-x86-64.so*
+}
+
+{
+   dl_new_object_leaks
+   Memcheck:Leak
+   fun:malloc
+   fun:_dl_new_object
+   obj:/lib/x86_64-linux-gnu/ld-linux-x86-64.so*
+}
+
+{
+   dl_calloc_leaks
+   Memcheck:Leak
+   fun:calloc
+   obj:/lib/x86_64-linux-gnu/ld-linux-x86-64.so*
+}
