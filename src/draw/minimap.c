@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 09:45:04 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/11 09:45:04 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/07 10:10:44 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,21 @@ static void	draw_minimap(t_cub3d *cub3d)
 	int			color;
 	uint32_t	y;
 	uint32_t	x;
-	t_vector2D	minimap_ratio;
+	t_vector2D	mm_ratio;
 
-	minimap_ratio.x = (float)cub3d->map_width
-		/ (float)cub3d->minimap_image->width;
-	minimap_ratio.y = (float)cub3d->map_height
-		/ (float)cub3d->minimap_image->height;
+	mm_ratio.x = (float)cub3d->map_width / (float)cub3d->minimap_image->width;
+	mm_ratio.y = (float)cub3d->map_height / (float)cub3d->minimap_image->height;
 	y = 0;
 	while (y < cub3d->minimap_image->height)
 	{
 		x = 0;
 		while (x < cub3d->minimap_image->width)
 		{
-			if (fabsf(cub3d->player.x - x * minimap_ratio.x) < PLAYER_SIZE
-				&& fabsf(cub3d->player.y - y * minimap_ratio.y) < PLAYER_SIZE)
+			if (fabsf(cub3d->player.x - x * mm_ratio.x) < PLAYER_SIZE
+				&& fabsf(cub3d->player.y - y * mm_ratio.y) < PLAYER_SIZE)
 				color = 0xFF0000CC;
-			else if (cub3d->map[(int)(y * minimap_ratio.y)][(int)(x
-					* minimap_ratio.x)] == '0')
+			else if (cub3d->map[(int)(y * mm_ratio.y)][(int)(x
+					* mm_ratio.x)] == '0')
 				color = 0x999922CC;
 			else
 				color = 0xFFFFFFCC;
@@ -46,9 +44,9 @@ static void	draw_minimap(t_cub3d *cub3d)
 
 void	create_minimap(t_cub3d *cub3d)
 {
-	static bool is_maximized = false;
-	t_position mm_size;
-	t_position mm_position;
+	static bool	is_maximized = false;
+	t_position	mm_size;
+	t_position	mm_position;
 
 	if (!cub3d->minimap_image || is_maximized != cub3d->minimap_maximized)
 	{

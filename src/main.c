@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:11:15 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 16:39:05 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/07 10:19:11 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ int	main(int argc, char **argv)
 {
 	t_cub3d	cub3d;
 
-	(void)argv;
+	if (argc != 2)
+		exit_error("Wrong number of arguments", NULL);
 	cub3d.map = NULL;
 	if (argc != 2)
 		exit_error("Wrong number of arguments", NULL);
-	cub3d_init(&cub3d);
+	cub3d_init(&cub3d, argv[1]);
 	print_map(cub3d);
 	draw_scene(&cub3d);
 	mlx_loop(cub3d.mlx);

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:48:33 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 17:26:08 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/07 10:23:55 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@ void	cleanup(t_cub3d *cub3d)
 		free(cub3d->map[i++]);
 	free(cub3d->map);
 	ft_lstclear(&cub3d->map_lines, free);
-	mlx_delete_texture(cub3d->texture[WALL_NORTH]);
-	mlx_delete_texture(cub3d->texture[WALL_SOUTH]);
-	mlx_delete_texture(cub3d->texture[WALL_WEST]);
-	mlx_delete_texture(cub3d->texture[WALL_EAST]);
+	if (cub3d->texture[WALL_NORTH])
+		mlx_delete_texture(cub3d->texture[WALL_NORTH]);
+	if (cub3d->texture[WALL_SOUTH])
+		mlx_delete_texture(cub3d->texture[WALL_SOUTH]);
+	if (cub3d->texture[WALL_WEST])
+		mlx_delete_texture(cub3d->texture[WALL_WEST]);
+	if (cub3d->texture[WALL_EAST])
+		mlx_delete_texture(cub3d->texture[WALL_EAST]);
 	if (cub3d->img)
 		mlx_delete_image(cub3d->mlx, cub3d->img);
 	if (cub3d->fps_image)
