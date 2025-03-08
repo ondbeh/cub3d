@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 11:44:25 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:17:46 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ static void	set_default_values(t_cub3d *cub3d)
 	cub3d->texture[WALL_EAST] = NULL;
 	cub3d->texture[WALL_DOOR] = NULL;
 	cub3d->cursor = NULL;
-	cub3d->plane.x = 0;
-	cub3d->plane.y = 0.66;
-	cub3d->player.x = -1;
-	cub3d->player.y = -1;
+	cub3d->plane = (t_vector2D){0, BASE_FOV};
+	cub3d->player = (t_vector2D){-1, -1};
 	cub3d->height_multiplier = BASE_HEIGHT_MULTIPLIER;
 	cub3d->rotation_angle = BASE_ROTATION_ANGLE;
 	cub3d->map = NULL;
