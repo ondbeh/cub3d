@@ -2,23 +2,19 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   load_texture.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2025/02/10 08:58:09 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 08:58:09 by obehavka         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/08 18:15:00 by kmuhlbau          #+#    #+#             */
+/*   Updated: 2025/03/08 18:15:02 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-
 static mlx_texture_t	*load_texture(char *path)
 {
-	mlx_texture_t *texture;
+	mlx_texture_t	*texture;
 
 	texture = mlx_load_png(path);
 	if (!texture)
