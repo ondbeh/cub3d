@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 09:45:04 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 12:07:28 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 13:17:30 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ static void	draw_minimap(t_cub3d *cub3d)
 				color = 0x999922CC;
 			else
 				color = 0xFFFFFFCC;
-			mlx_put_pixel(cub3d->minimap_image, x, y, color);
-			x++;
+			mlx_put_pixel(cub3d->minimap_image, x++, y, color);
 		}
 		y++;
 	}

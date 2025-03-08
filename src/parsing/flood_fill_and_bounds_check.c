@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:57:55 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/08 11:45:14 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 16:31:19 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static bool	is_valid_space(char c)
 bool	flood_fill(t_cub3d *cub3d, t_position pos, bool **visited)
 {
 	if (!is_within_bounds(cub3d, pos.x, pos.y))
+		return (false);
+	if (cub3d->map[pos.y][pos.x] == 'D' && cub3d->texture[4] == NULL)
 		return (false);
 	if (cub3d->map[pos.y][pos.x] == '1' || visited[pos.y][pos.x])
 		return (true);
