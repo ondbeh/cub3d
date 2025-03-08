@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:11:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 10:48:25 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:39:17 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,4 @@ void	draw_scene(t_cub3d *cub3d)
 	create_minimap(cub3d);
 	calculate_fps(cub3d);
 	draw_sprites(cub3d, hit_array);
-
 }

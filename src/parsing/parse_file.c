@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:49:35 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/08 18:23:33 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:32:13 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static int	parse_color(char *color_str, t_cub3d *cub3d)
 	if (i != 3)
 		exit_error("Invalid color format", cub3d);
 	free_split(rgb);
-	return (color_array[0] << 24 | color_array[1] << 16 | color_array[2] << 8 | 0xFF);
+	return (color_array[0] << 24 | color_array[1] << 16
+		| color_array[2] << 8 | 0xFF);
 }
 
 static void	assign_texture_or_color(t_cub3d *cub3d, t_textures *textures,
