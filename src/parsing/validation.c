@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:36:15 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/08 11:40:31 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 16:35:13 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	check_map_validity(t_cub3d *cub3d)
 int	validate_map_and_textures(t_cub3d *cub3d, t_textures *textures)
 {
 	if (!textures->north || !textures->south || !textures->west
-		|| !textures->east || !textures->door) // TODO: Check if door is needed
+		|| !textures->east)
 		return (0);
 	if (cub3d->floor_color == -1 || cub3d->ceiling_color == -1)
 		return (0);
