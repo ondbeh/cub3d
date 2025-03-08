@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:57:55 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/02/19 15:01:00 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 11:45:14 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static bool	is_within_bounds(t_cub3d *cub3d, int x, int y)
 // Helper function to check if character is valid for flood fill
 static bool	is_valid_space(char c)
 {
-	return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W');
+	return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W' || c == 'D');
 }
 
 bool	flood_fill(t_cub3d *cub3d, t_position pos, bool **visited)

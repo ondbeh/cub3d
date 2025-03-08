@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 10:31:18 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:00:54 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_cub3d
 {
 	char				**map;
 	t_list				*map_lines;
-	mlx_texture_t		*texture[4];
+	mlx_texture_t		*texture[5];
 	mlx_t				*mlx;
 	mlx_image_t			*img;
 	mlx_image_t			*minimap_image;
@@ -68,6 +68,7 @@ typedef struct s_direction_hit
 	float				distance;
 	float				wall_x;
 	t_wall_side			wall_side;
+	bool				is_door;
 }						t_direction_hit;
 
 typedef struct s_textures
@@ -76,6 +77,7 @@ typedef struct s_textures
 	char				*south;
 	char				*east;
 	char				*west;
+	char				*door;
 }						t_textures;
 
 #endif
