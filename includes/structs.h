@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 10:31:18 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 14:23:17 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_sprite
 	char				*texture;
 	mlx_texture_t		*texture_ptr;
 	float				distance;
+	t_vector2D			transform;
 }						t_sprite;
 
 typedef struct s_cub3d
@@ -77,5 +78,14 @@ typedef struct s_textures
 	char				*east;
 	char				*west;
 }						t_textures;
+
+typedef struct s_sprite_draw_data
+{
+	t_position			dimensions;
+	t_position			start;
+	t_position			end;
+	int					stripe;
+	int					tex_x;
+}						t_sprite_draw_data;
 
 #endif
