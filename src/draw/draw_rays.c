@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 17:12:06 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/10 22:59:51 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:04:07 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,24 @@ static int	reverse_color(int color)
 static int	get_color(t_cub3d *cub3d, t_direction_hit hit, int first_pixel,
 		int last_pixel, int y)
 {
-	float		y_ratio;
-	t_position	texture_pos;
-	int			texture_color;
-	int			*tex_pixels;
+	float			y_ratio;
+	t_position		texture_pos;
+	int				texture_color;
+	int				*tex_pixels;
+	mlx_texture_t	*texture_index;
 
-	tex_pixels = (int *)cub3d->texture[hit.wall_side]->pixels;
+	if (hit.is_door)
+		texture_index = cub3d->texture[WALL_DOOR];
+	else
+		texture_index = cub3d->texture[hit.wall_side];
+	tex_pixels = (int *)texture_index->pixels;
 	if (y < 0 || y > cub3d->mlx->height)
 		return (0);
 	y_ratio = (float)(y - first_pixel) / (last_pixel - first_pixel);
-	texture_pos.x = (int)(hit.wall_x * cub3d->texture[hit.wall_side]->width);
-	texture_pos.y = (int)(y_ratio * cub3d->texture[hit.wall_side]->height);
-	texture_color = tex_pixels[texture_pos.y
-		* cub3d->texture[hit.wall_side]->width + texture_pos.x];
+	texture_pos.x = (int)(hit.wall_x * texture_index->width);
+	texture_pos.y = (int)(y_ratio * texture_index->height);
+	texture_color = tex_pixels[texture_pos.y * texture_index->width
+		+ texture_pos.x];
 	texture_color = reverse_color(texture_color);
 	return (texture_color);
 }

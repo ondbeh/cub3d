@@ -24,6 +24,8 @@ SRCS		=	main.c \
 				flood_fill_and_bounds_check.c \
 				draw_sprites.c \
 				parse_sprite.c \
+				door_logic.c \
+				parse_sprite.c \
 				draw_sprites_helper.c
 
 VPATH		=	src/ \

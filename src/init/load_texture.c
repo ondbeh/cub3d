@@ -31,4 +31,5 @@ void	load_textures(t_cub3d *cub3d, t_textures textures)
 	cub3d->texture[WALL_SOUTH] = load_texture(textures.south);
 	cub3d->texture[WALL_EAST] = load_texture(textures.east);
 	cub3d->texture[WALL_WEST] = load_texture(textures.west);
+	cub3d->texture[WALL_DOOR] = load_texture(textures.door);
 }

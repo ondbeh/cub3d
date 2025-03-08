@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 10:31:31 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 11:44:25 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	set_default_values(t_cub3d *cub3d)
 	cub3d->texture[WALL_SOUTH] = NULL;
 	cub3d->texture[WALL_WEST] = NULL;
 	cub3d->texture[WALL_EAST] = NULL;
+	cub3d->texture[WALL_DOOR] = NULL;
 	cub3d->cursor = NULL;
 	cub3d->plane.x = 0;
 	cub3d->plane.y = 0.66;
@@ -66,7 +67,7 @@ void	cub3d_init(t_cub3d *cub3d, char *filename)
 {
 	t_textures	textures;
 
-	textures = (t_textures){NULL, NULL, NULL, NULL};
+	textures = (t_textures){NULL, NULL, NULL, NULL, NULL};
 	cub3d->map_lines = NULL;
 	set_default_values(cub3d);
 	parse_file(cub3d, &textures, filename);
@@ -75,6 +76,7 @@ void	cub3d_init(t_cub3d *cub3d, char *filename)
 	free(textures.north);
 	free(textures.south);
 	free(textures.west);
+	free(textures.door);
 	get_map_dimensions(cub3d);
 	map_ll_to_array(cub3d);
 	if (!validate_map_and_textures(cub3d, &textures))
