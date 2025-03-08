@@ -25,6 +25,7 @@ SRCS		=	main.c \
 				draw_sprites.c \
 				parse_sprite.c \
 				door_logic.c \
+				parse_file1.c \
 				draw_sprites_helper.c
 
 VPATH		=	src/ \

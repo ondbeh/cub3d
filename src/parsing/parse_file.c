@@ -6,19 +6,12 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:49:35 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/08 11:41:29 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:23:33 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 #include <stdio.h>
-
-static int	is_map_line(char *line)
-{
-	while (*line && ft_isspace(*line))
-		line++;
-	return (*line == '1' || *line == '0');
-}
 
 static int	parse_color(char *color_str, t_cub3d *cub3d)
 {
@@ -43,6 +36,27 @@ static int	parse_color(char *color_str, t_cub3d *cub3d)
 	return (color_array[0] << 24 | color_array[1] << 16 | color_array[2] << 8 | 0xFF);
 }
 
+static void	assign_texture_or_color(t_cub3d *cub3d, t_textures *textures,
+		char **split)
+{
+	if (ft_strncmp(split[0], "NO", 3) == 0)
+		textures->north = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "SO", 3) == 0)
+		textures->south = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "WE", 3) == 0)
+		textures->west = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "EA", 3) == 0)
+		textures->east = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "DOOR", 3) == 0)
+		textures->door = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "F", 2) == 0)
+		cub3d->floor_color = parse_color(split[1], cub3d);
+	else if (ft_strncmp(split[0], "C", 2) == 0)
+		cub3d->ceiling_color = parse_color(split[1], cub3d);
+	else if (ft_strncmp(split[0], "S", 2) == 0)
+		parse_sprite(cub3d, split);
+}
+
 static void	parse_texture_or_color(t_cub3d *cub3d, t_textures *textures,
 		char *line)
 {
@@ -60,22 +74,7 @@ static void	parse_texture_or_color(t_cub3d *cub3d, t_textures *textures,
 	free(trimmed);
 	if (!split)
 		exit_error("Memory allocation failed", cub3d);
-	if (ft_strncmp(split[0], "NO", 3) == 0)
-		textures->north = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "SO", 3) == 0)
-		textures->south = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "WE", 3) == 0)
-		textures->west = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "EA", 3) == 0)
-		textures->east = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "DOOR", 3) == 0)
-		textures->door = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "F", 2) == 0)
-		cub3d->floor_color = parse_color(split[1], cub3d);
-	else if (ft_strncmp(split[0], "C", 2) == 0)
-		cub3d->ceiling_color = parse_color(split[1], cub3d);
-	else if (ft_strncmp(split[0], "S", 2) == 0)
-		parse_sprite(cub3d, split);
+	assign_texture_or_color(cub3d, textures, split);
 	free_split(split);
 }
 

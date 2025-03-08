@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:51:53 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/08 13:15:05 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:23:49 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int		validate_map_and_textures(t_cub3d *cub3d, t_textures *textures);
 void	map_ll_to_array(t_cub3d *cub3d);
 bool	flood_fill(t_cub3d *cub3d, t_position pos, bool **visited);
 void	parse_sprite(t_cub3d *cub3d, char **split);
-
+int		is_map_line(char *line);
 #endif
