@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 15:05:14 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:49:41 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,13 @@ typedef struct s_sprite_draw_data
 	int					stripe;
 	int					tex_x;
 }						t_sprite_draw_data;
+
+typedef struct s_dda_params
+{
+	t_vector2D			ray_dir;
+	t_vector2D			delta_dist;
+	t_vector2D			side_dist;
+	t_position			step;
+}						t_dda_params;
 
 #endif

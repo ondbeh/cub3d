@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 09:45:04 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 18:04:50 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:39:53 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-
-static uint32_t	get_tile_color(char tile)
-{
-	if (tile == '0')
-		return (0x999922CC);
-	else if (tile == 'D')
-		return (0xAA5500CC);
-	else if (tile == 'E')
-		return (0x00FF00CC);
-	else
-		return (0xFFFFFFCC);
-}
 
 static void	draw_map_tiles(t_cub3d *cub3d, int mm_width, int mm_height,
 		t_vector2D mm_ratio)
@@ -59,7 +47,7 @@ static void	draw_player(t_cub3d *cub3d, int mm_width, int mm_height,
 
 	player_x = (int)(cub3d->player.x / mm_ratio.x);
 	player_y = (int)(cub3d->player.y / mm_ratio.y);
-	player_size = cub3d->minimap_maximized ? 4 : 2;
+	player_size = 0.5 / (mm_ratio.x + mm_ratio.y);
 	i = player_x - player_size;
 	while (i <= player_x + player_size)
 	{
@@ -81,21 +69,20 @@ static void	draw_player(t_cub3d *cub3d, int mm_width, int mm_height,
 static void	draw_direction(t_cub3d *cub3d, int mm_width, int mm_height,
 		t_vector2D mm_ratio)
 {
-	int	player_x;
-	int	player_y;
-	int	line_length;
-	int	i;
-	int	x;
-	int	y;
+	t_position	player;
+	int			line_length;
+	int			i;
+	int			x;
+	int			y;
 
-	player_x = (int)(cub3d->player.x / mm_ratio.x);
-	player_y = (int)(cub3d->player.y / mm_ratio.y);
-	line_length = cub3d->minimap_maximized ? 20 : 8;
+	player.x = (int)(cub3d->player.x / mm_ratio.x);
+	player.y = (int)(cub3d->player.y / mm_ratio.y);
+	line_length = 5 / (mm_ratio.x + mm_ratio.y);
 	i = 0;
 	while (i <= line_length)
 	{
-		x = player_x + (int)(cub3d->dir.x * i);
-		y = player_y + (int)(cub3d->dir.y * i);
+		x = player.x + (int)(cub3d->dir.x * i);
+		y = player.y + (int)(cub3d->dir.y * i);
 		if (x >= 0 && x < mm_width && y >= 0 && y < mm_height)
 			mlx_put_pixel(cub3d->minimap_image, x, y, 0xFFFF00FF);
 		i++;

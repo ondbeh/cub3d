@@ -26,7 +26,9 @@ SRCS		=	main.c \
 				parse_sprite.c \
 				door_logic.c \
 				parse_file1.c \
-				draw_sprites_helper.c
+				draw_sprites_helper.c \
+				minimap_utils.c \
+				calculate_rays_prep.c
 
 VPATH		=	src/ \
 				src/init/ \
