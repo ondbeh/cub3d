@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:36:15 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/08 16:35:13 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:54:59 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	check_map_validity(t_cub3d *cub3d)
 		return (0);
 	is_valid = flood_fill(cub3d, (t_position){cub3d->player.x, cub3d->player.y},
 			visited);
-	if (is_valid)	
+	if (is_valid)
 		is_valid = check_remaining_spaces(cub3d, visited);
 	free_visited_array(visited, cub3d->map_height);
 	return (is_valid);
