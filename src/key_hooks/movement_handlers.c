@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement_handlers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:59:04 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/18 16:03:10 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 13:15:33 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ void	handle_key_w(t_cub3d *cub3d)
 		offset.x = -PLAYER_SIZE;
 	if (cub3d->dir.y < 0)
 		offset.y = -PLAYER_SIZE;
-	if (cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == '0')
+	if (cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == '0'
+		|| cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == 'E')
 		cub3d->player.x = new_pos.x;
-	if (cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == '0')
+	if (cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == '0'
+		|| cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == 'E')
 		cub3d->player.y = new_pos.y;
 }
 
@@ -54,9 +56,11 @@ void	handle_key_s(t_cub3d *cub3d)
 		offset.x = -PLAYER_SIZE;
 	if (cub3d->dir.y > 0)
 		offset.y = -PLAYER_SIZE;
-	if (cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == '0')
+	if (cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == '0'
+		|| cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == 'E')
 		cub3d->player.x = new_pos.x;
-	if (cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == '0')
+	if (cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == '0'
+		|| cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == 'E')
 		cub3d->player.y = new_pos.y;
 }
 
@@ -82,9 +86,11 @@ void	handle_key_a(t_cub3d *cub3d)
 		offset.x = -PLAYER_SIZE;
 	if (strafe.y < 0)
 		offset.y = -PLAYER_SIZE;
-	if (cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == '0')
+	if (cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == '0'
+		|| cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == 'E')
 		cub3d->player.x = new_pos.x;
-	if (cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == '0')
+	if (cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == '0'
+		|| cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == 'E')
 		cub3d->player.y = new_pos.y;
 }
 
@@ -110,8 +116,10 @@ void	handle_key_d(t_cub3d *cub3d)
 		offset.x = -PLAYER_SIZE;
 	if (strafe.y < 0)
 		offset.y = -PLAYER_SIZE;
-	if (cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == '0')
+	if (cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == '0'
+		|| cub3d->map[(int)cub3d->player.y][(int)(new_pos.x + offset.x)] == 'E')
 		cub3d->player.x = new_pos.x;
-	if (cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == '0')
+	if (cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == '0'
+		|| cub3d->map[(int)(new_pos.y + offset.y)][(int)cub3d->player.x] == 'E')
 		cub3d->player.y = new_pos.y;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_fps.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:26:40 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/19 17:26:45 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 13:15:23 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

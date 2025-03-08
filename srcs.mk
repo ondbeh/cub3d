@@ -23,8 +23,8 @@ SRCS		=	main.c \
 				map_ll_to_array.c \
 				flood_fill_and_bounds_check.c \
 				draw_sprites.c \
-				parse_sprite.c
-
+				parse_sprite.c \
+				door_logic.c
 VPATH		=	src/ \
 				src/init/ \
 				src/exit/ \

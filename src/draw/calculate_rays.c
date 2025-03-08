@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:52:45 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 12:05:35 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 13:15:26 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,16 @@ static void	calculate_distance(t_cub3d *cub3d, t_direction_hit *hit,
 			curr_pos.y += step.y;
 			hit->wall_side = (ray_dir.y < 0) ? WALL_NORTH : WALL_SOUTH;
 		}
-		if (cub3d->map[curr_pos.y][curr_pos.x] != '0')
+		if (cub3d->map[curr_pos.y][curr_pos.x] != '0'
+			&& cub3d->map[curr_pos.y][curr_pos.x] != 'E')
 		{
 			hit_wall = 1;
 			if (cub3d->map[curr_pos.y][curr_pos.x] == 'D')
 				hit->is_door = true;
 		}
 	}
-	if (hit->wall_side == WALL_NORTH || hit->wall_side == WALL_SOUTH || hit->wall_side == WALL_DOOR)
+	if (hit->wall_side == WALL_NORTH || hit->wall_side == WALL_SOUTH
+		|| hit->wall_side == WALL_DOOR)
 	{
 		hit->distance = (curr_pos.y - cub3d->player.y + (1 - step.y) / 2)
 			/ ray_dir.y;
