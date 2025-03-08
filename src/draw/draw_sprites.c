@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 10:48:40 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 14:59:40 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:13:44 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ static void	draw_sprite_strip(t_cub3d *cub3d, t_direction_hit *hit_array, int i,
 
 	if (!(cub3d->sprites[i]->transform.y > 0 && data->stripe > 0
 			&& data->stripe < SCREEN_WIDTH
-			&& cub3d->sprites[i]->transform.y < hit_array[data->stripe].distance))
+			&& cub3d->sprites[i]->transform.y
+			< hit_array[data->stripe].distance))
 		return ;
 	y = data->start.y;
 	while (y < data->end.y)
