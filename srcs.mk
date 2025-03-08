@@ -21,7 +21,9 @@ SRCS		=	main.c \
 				ft_isspace.c \
 				free_split.c \
 				map_ll_to_array.c \
-				flood_fill_and_bounds_check.c
+				flood_fill_and_bounds_check.c \
+				draw_sprites.c \
+				parse_sprite.c
 
 VPATH		=	src/ \
 				src/init/ \

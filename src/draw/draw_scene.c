@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:11:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/15 12:45:19 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 10:48:25 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ void	draw_scene(t_cub3d *cub3d)
 	draw_rays(cub3d, hit_array);
 	create_minimap(cub3d);
 	calculate_fps(cub3d);
+	draw_sprites(cub3d, hit_array);
+
 }

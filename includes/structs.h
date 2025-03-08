@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/19 17:19:40 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 10:31:18 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "defines.h"
 # include "enums.h"
 # include "libft.h"
+
 typedef struct s_vector2D
 {
 	float				x;
@@ -29,6 +30,14 @@ typedef struct s_position
 	int					y;
 }						t_position;
 
+typedef struct s_sprite
+{
+	t_vector2D			pos;
+	char				*texture;
+	mlx_texture_t		*texture_ptr;
+	float				distance;
+}						t_sprite;
+
 typedef struct s_cub3d
 {
 	char				**map;
@@ -38,6 +47,7 @@ typedef struct s_cub3d
 	mlx_image_t			*img;
 	mlx_image_t			*minimap_image;
 	mlx_win_cursor_t	*cursor;
+	t_sprite			*sprites[MAX_SPRITE_COUNT];
 	bool				minimap_maximized;
 	t_vector2D			player;
 	t_vector2D			dir;
@@ -48,6 +58,7 @@ typedef struct s_cub3d
 	int					floor_color;
 	int					map_width;
 	int					map_height;
+	int					sprite_count;
 	mlx_image_t			*fps_image;
 
 }						t_cub3d;

@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 13:30:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/19 17:40:53 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 10:21:43 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define MAX_FOV 1.2
 # define BASE_HEIGHT_MULTIPLIER 1.0
 # define BUTTON_TURNING_COEF 0.5
+# define MAX_SPRITE_COUNT 30
 // # define TEXTURE_NORTH "textures/texture_1.png"
 // # define TEXTURE_SOUTH "textures/texture_2.png"
 // # define TEXTURE_EAST "textures/texture_3.png"

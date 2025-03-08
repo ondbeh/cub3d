@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:49:35 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/02/19 16:48:50 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 10:30:23 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ static void	parse_texture_or_color(t_cub3d *cub3d, t_textures *textures,
 		cub3d->floor_color = parse_color(split[1], cub3d);
 	else if (ft_strncmp(split[0], "C", 2) == 0)
 		cub3d->ceiling_color = parse_color(split[1], cub3d);
+	else if (ft_strncmp(split[0], "S", 2) == 0)
+		parse_sprite(cub3d, split);
 	free_split(split);
 }
 

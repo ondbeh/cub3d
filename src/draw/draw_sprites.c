@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   draw_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 23:04:07 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 10:39:24 by obehavka         ###   ########.fr       */
+/*   Created: 2025/03/08 10:48:40 by obehavka          #+#    #+#             */
+/*   Updated: 2025/03/08 10:53:09 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
+#include "draw.h"
 
-# include "../libft/inc/libft.h"
-# include "exit.h"
-# include "key_hooks.h"
-# include "parsing.h"
-# include "structs.h"
-# include <stdio.h>
+void	draw_sprites(t_cub3d *cub3d, t_direction_hit *hit_array)
+{
+	int	i;
 
-void			cub3d_init(t_cub3d *cub3d, char *filename);
-void			mlx_prepare(t_cub3d *cub3d);
-void			load_textures(t_cub3d *cub3d, t_textures textures);
-
-#endif
+	(void)hit_array;
+	i = 0;
+	while (i < cub3d->sprite_count)
+	{
+		printf("draw sprite %f / %f\n", cub3d->sprites[i]->pos.x,
+			cub3d->sprites[i]->pos.y);
+		i++;
+	}
+}

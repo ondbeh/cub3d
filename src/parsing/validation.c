@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:36:15 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/02/19 15:07:24 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/08 09:49:41 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static bool	check_remaining_spaces(t_cub3d *cub3d, bool **visited)
 		{
 			if (cub3d->map[pos.y][pos.x] == '0' && !visited[pos.y][pos.x])
 				is_valid = flood_fill(cub3d, (t_position){pos.x, pos.y},
-					visited);
+						visited);
 			pos.x++;
 		}
 		pos.y++;
@@ -76,9 +76,9 @@ int	check_map_validity(t_cub3d *cub3d)
 	visited = init_visited_array(cub3d);
 	if (!visited)
 		return (0);
-	is_valid = flood_fill(cub3d,
-			(t_position){cub3d->player.x, cub3d->player.y}, visited);
-	if (is_valid)
+	is_valid = flood_fill(cub3d, (t_position){cub3d->player.x, cub3d->player.y},
+			visited);
+	if (is_valid)	
 		is_valid = check_remaining_spaces(cub3d, visited);
 	free_visited_array(visited, cub3d->map_height);
 	return (is_valid);

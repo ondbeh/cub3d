@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/07 10:22:13 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/08 10:31:31 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 static void	set_default_values(t_cub3d *cub3d)
 {
+	int	i;
+
+	i = 0;
 	cub3d->mlx = NULL;
 	cub3d->img = NULL;
 	cub3d->fps_image = NULL;
@@ -34,6 +37,9 @@ static void	set_default_values(t_cub3d *cub3d)
 	cub3d->map_lines = NULL;
 	cub3d->ceiling_color = 0;
 	cub3d->floor_color = 0;
+	cub3d->sprite_count = 0;
+	while (i < MAX_SPRITE_COUNT)
+		cub3d->sprites[i++] = NULL;
 }
 
 static void	get_map_dimensions(t_cub3d *cub3d)
