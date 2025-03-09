@@ -6,12 +6,11 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:52:45 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 18:51:46 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/09 09:37:31 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-
 
 static void	perform_dda(t_cub3d *cub3d, t_direction_hit *hit,
 		t_position *curr_pos, t_dda_params *params)
@@ -21,18 +20,17 @@ static void	perform_dda(t_cub3d *cub3d, t_direction_hit *hit,
 	hit_wall = 0;
 	while (!hit_wall)
 	{
-		hit->is_door = false;
 		if (params->side_dist.x < params->side_dist.y)
 		{
 			params->side_dist.x += params->delta_dist.x;
 			curr_pos->x += params->step.x;
-			hit->wall_side = (params->ray_dir.x < 0) ? WALL_WEST : WALL_EAST;
+			hit->wall_side = WALL_EAST - (params->ray_dir.x < 0);
 		}
 		else
 		{
 			params->side_dist.y += params->delta_dist.y;
 			curr_pos->y += params->step.y;
-			hit->wall_side = (params->ray_dir.y < 0) ? WALL_NORTH : WALL_SOUTH;
+			hit->wall_side = WALL_SOUTH - (params->ray_dir.y < 0);
 		}
 		if (cub3d->map[curr_pos->y][curr_pos->x] != '0'
 			&& cub3d->map[curr_pos->y][curr_pos->x] != 'E')
@@ -71,6 +69,7 @@ static void	calculate_distance(t_cub3d *cub3d, t_direction_hit *hit,
 
 	curr_pos = (t_position){(int)cub3d->player.x, (int)cub3d->player.y};
 	prepare_dda_params(cub3d, ray_dir, &params);
+	hit->is_door = false;
 	perform_dda(cub3d, hit, &curr_pos, &params);
 	calculate_hit_distance(cub3d, hit, curr_pos, params);
 }
