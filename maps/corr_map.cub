@@ -1,0 +1,27 @@
+NO ./textures/texture_1.png
+SO ./textures/texture_2.png
+WE ./textures/texture_3.png
+EA ./textures/texture_4.png
+
+F 30,220,50
+C 225,200,10
+
+S 1 1 ./textures/sprite_barrel.png
+S 2 1 ./textures/sprite_light.png
+S 3 1 ./textures/sprite_light.png
+S 4 1 ./textures/sprite_light.png
+S 5 1 ./textures/sprite_light.png
+S 6 1 ./textures/sprite_pillar.png
+S 7 1 ./textures/sprite_pillar.png
+S 8 1 ./textures/sprite_pillar.png
+S 9 1 ./textures/sprite_pillar.png
+S 10 1 ./textures/sprite_barrel.png
+S 11 1 ./textures/sprite_char_1_multi_12.png 12
+S 12 1 ./textures/sprite_char_2_multi_12.png 12
+
+
+DOOR ./textures/texture_door.png
+
+1111111111111111111111111111111111111111111111111111111111111111
+1E0000000000000000000000D000D00000000000000D00000000000000000001
+1111111111111111111111111111111111111111111111111111111111111111
