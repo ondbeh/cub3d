@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop_hook_control.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:02:23 by obehavka          #+#    #+#             */
-/*   Updated: 2025/02/19 17:39:32 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/09 12:32:20 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ void	loop_hook_control(void *par)
 
 	cub3d = (t_cub3d *)par;
 	mouse_moved = handle_mouse_movement(cub3d);
-	if (mlx_is_key_down(cub3d->mlx, MLX_KEY_ESCAPE))
-		exit_success(cub3d);
-	else if (mlx_is_key_down(cub3d->mlx, MLX_KEY_W))
+	if (mlx_is_key_down(cub3d->mlx, MLX_KEY_W))
 		handle_key_w(cub3d);
 	else if (mlx_is_key_down(cub3d->mlx, MLX_KEY_S))
 		handle_key_s(cub3d);

@@ -19,8 +19,6 @@ LIBFT_FLAGS	=	-L$(LIBFT_DIR) -lft
 MLX42_DIR	=	./MLX42
 MLX42		=	$(MLX42_DIR)/build/libmlx42.a
 
-
-
 # Detect the operating system
 UNAME_S := $(shell uname -s)
 
@@ -29,6 +27,18 @@ ifeq ($(UNAME_S), Linux)
     MLX42_FLAGS = -L$(MLX42_DIR)/build -lmlx42 -lGL -lX11 -lXrandr -lXi -lXxf86vm -lXinerama -lXcursor
 else ifeq ($(UNAME_S), Darwin)
     MLX42_FLAGS = -L$(MLX42_DIR)/build -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit
+endif
+
+# Add Linux dependencies helper
+LINUX_DEPS = build-essential libx11-dev libxrandr-dev libxi-dev libxinerama-dev libxcursor-dev libgl1-mesa-dev libglfw3-dev xorg-dev
+
+# Install dependencies on Linux systems (especially for Docker)
+deps:
+ifeq ($(UNAME_S), Linux)
+	@echo "Installing Linux dependencies..."
+	@command -v apt-get >/dev/null 2>&1 && apt-get update && apt-get install -y $(LINUX_DEPS) || echo "Please install: $(LINUX_DEPS)"
+else
+	@echo "This target is for Linux systems only."
 endif
 
 GLFW_PATH_HOMEBREW_ARM = /opt/homebrew/opt/glfw
@@ -82,14 +92,19 @@ $(MLX42):
 	@echo "Compiling mlx42..."
 	@git submodule update --init --recursive -q
 	@if [ ! -d $(MLX42_DIR)/build ]; then mkdir -p $(MLX42_DIR)/build; fi
+ifeq ($(UNAME_S), Linux)
+	@command -v cmake >/dev/null 2>&1 || (echo "Installing cmake..." && apt-get update && apt-get install -y cmake)
+endif
 	@cd $(MLX42_DIR)/build && cmake .. && make -j4
 
 # Clean object files from both $(NAME) and libft
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@echo "Deleting libft objects"
-	@$(MAKE) -C $(MLX42_DIR)/build clean
-	@echo "Deleting MLX42 objects"
+	@if [ -d $(MLX42_DIR)/build ]; then \
+		rm -rf $(MLX42_DIR)/build; \
+		echo "Deleting MLX42 build directory"; \
+	fi
 	@rm -rf $(OBJ_DIR)
 	@echo "Deleting $(NAME) objects"
 
@@ -117,4 +132,4 @@ norm:
 	@-norminette src libft includes | grep "Error" || true
 
 # PHONY prevents conflicts with files named like the targets
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re norm cleancub recub

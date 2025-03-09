@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 12:18:49 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/08 13:15:44 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/09 12:13:12 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ t_position	get_door_pos(t_cub3d *cub3d)
 
 void	toggle_door(t_cub3d *cub3d)
 {
-	t_position	player_pos;
 	t_position	door_pos;
 
-	player_pos = (t_position){cub3d->player.x, cub3d->player.y};
 	door_pos = get_door_pos(cub3d);
 	if (door_pos.x != -1 && door_pos.y != -1)
 	{
