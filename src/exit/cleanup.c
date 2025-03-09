@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:48:33 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/09 12:07:32 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/09 12:40:09 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	cleanup_textures(t_cub3d *cub3d)
 		if (cub3d->sprites[i]->texture_ptr)
 			mlx_delete_texture(cub3d->sprites[i]->texture_ptr);
 		free(cub3d->sprites[i]);
+		cub3d->sprites[i] = NULL;
 		i++;
 	}
 	if (cub3d->texture[WALL_NORTH])
@@ -49,6 +50,9 @@ void	cleanup(t_cub3d *cub3d)
 		mlx_delete_image(cub3d->mlx, cub3d->img);
 	if (cub3d->fps_image)
 		mlx_delete_image(cub3d->mlx, cub3d->fps_image);
+	if (cub3d->minimap_image)
+		mlx_delete_image(cub3d->mlx, cub3d->minimap_image);
+	cleanup_textures(cub3d);
 	if (cub3d->mlx)
 		mlx_terminate(cub3d->mlx);
 	cub3d->map = NULL;
