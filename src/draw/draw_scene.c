@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:11:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 18:39:17 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:02:46 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	draw_scene(t_cub3d *cub3d)
 {
 	t_direction_hit	hit_array[SCREEN_WIDTH];
+	double			current_time;
 
+	current_time = mlx_get_time();
 	if (!cub3d->img)
 	{
 		cub3d->img = mlx_new_image(cub3d->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -29,5 +31,6 @@ void	draw_scene(t_cub3d *cub3d)
 	draw_rays(cub3d, hit_array);
 	create_minimap(cub3d);
 	calculate_fps(cub3d);
+	update_sprite_animation(cub3d, current_time);
 	draw_sprites(cub3d, hit_array);
 }

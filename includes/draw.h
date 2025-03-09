@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:14:02 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/09 09:22:58 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:00:47 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void		prepare_dda_params(t_cub3d *cub3d, t_vector2D ray_dir,
 				t_dda_params *params);
 void		prepare_delta_dist(t_vector2D ray_dir, t_vector2D *delta_dist);
 void		prepare_step_and_sidestep(t_cub3d *cub3d, t_dda_params *par);
+void		update_sprite_animation(t_cub3d *cub3d, double current_time);
 
 #endif

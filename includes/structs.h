@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:13:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 18:49:41 by obehavka         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:15:04 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ typedef struct s_sprite
 	mlx_texture_t		*texture_ptr;
 	float				distance;
 	t_vector2D			transform;
+	int					count;
+	int					current_frame;
+	double				last_frame_time;
 }						t_sprite;
 
 typedef struct s_cub3d

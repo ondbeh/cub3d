@@ -3,18 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 10:48:40 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 18:13:44 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:12:11 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-static inline int	get_sprite_tex_x(int x, int w, int s_s_x, mlx_texture_t *t)
+static inline int	get_sprite_tex_x(int x, int w, int s_s_x, t_sprite *sprite)
 {
-	return ((int)((x - (-w / 2 + s_s_x)) * t->width / w));
+	int	frame_width;
+	int	frame_x;
+	int	current_frame;
+
+	current_frame = sprite->current_frame % sprite->count;
+	frame_width = sprite->texture_ptr->width / sprite->count;
+	frame_x = (int)((x - (-w / 2 + s_s_x)) * frame_width / w);
+	return (frame_x + (current_frame * frame_width));
 }
 
 static int	get_sprite_color(mlx_texture_t *texture, int tex_x, int tex_y)
@@ -46,10 +53,9 @@ static void	draw_sprite_strip(t_cub3d *cub3d, t_direction_hit *hit_array, int i,
 	float	y_ratio;
 	int		color;
 
-	if (!(cub3d->sprites[i]->transform.y > 0 && data->stripe > 0
-			&& data->stripe < SCREEN_WIDTH
-			&& cub3d->sprites[i]->transform.y
-			< hit_array[data->stripe].distance))
+	if (cub3d->sprites[i]->transform.y <= 0 || data->stripe <= 0
+		|| data->stripe > SCREEN_WIDTH
+		|| cub3d->sprites[i]->transform.y > hit_array[data->stripe].distance)
 		return ;
 	y = data->start.y;
 	while (y < data->end.y)
@@ -82,7 +88,7 @@ void	draw_sprite(t_cub3d *cub3d, t_direction_hit *hit_array, int i)
 	while (data.stripe < end.x)
 	{
 		data.tex_x = get_sprite_tex_x(data.stripe, dimensions.x,
-				sprite_screen_x, cub3d->sprites[i]->texture_ptr);
+				sprite_screen_x, cub3d->sprites[i]);
 		draw_sprite_strip(cub3d, hit_array, i, &data);
 		data.stripe++;
 	}

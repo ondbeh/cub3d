@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 13:30:39 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 13:15:15 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:36:43 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define BUTTON_TURNING_COEF 0.5
 # define MAX_SPRITE_COUNT 30
 # define DOOR_CHECK_DISTANCE 2
+# define BASE_ANIMATION_SPEED 0.15
 // # define TEXTURE_NORTH "textures/texture_1.png"
 // # define TEXTURE_SOUTH "textures/texture_2.png"
 // # define TEXTURE_EAST "textures/texture_3.png"
