@@ -132,4 +132,4 @@ norm:
 	@-norminette src libft includes | grep "Error" || true
 
 # PHONY prevents conflicts with files named like the targets
-.PHONY: all clean fclean re norm cleancub recub
+.PHONY: all clean fclean re norm cleancub recub deps
