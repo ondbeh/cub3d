@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:49:35 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/08 18:32:13 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:46:49 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static int	parse_color(char *color_str, t_cub3d *cub3d)
 static void	assign_texture_or_color(t_cub3d *cub3d, t_textures *textures,
 		char **split)
 {
+	if (!split[1])
+		exit_error("Invalid texture or color", cub3d);
 	if (ft_strncmp(split[0], "NO", 3) == 0)
 		textures->north = ft_strdup(split[1]);
 	else if (ft_strncmp(split[0], "SO", 3) == 0)
