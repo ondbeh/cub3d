@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:49:35 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/09 11:51:44 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/09 12:01:48 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,24 @@ static void	assign_texture_or_color(t_cub3d *cub3d, t_textures *textures,
 {
 	if (!split[1])
 		exit_error("Invalid texture or color", cub3d);
-	if (ft_strncmp(split[0], "NO", 3) == 0)
+	if (ft_strncmp(split[0], "NO", 3) == 0 && !textures->north)
 		textures->north = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "SO", 3) == 0)
+	else if (ft_strncmp(split[0], "SO", 3) == 0 && !textures->south)
 		textures->south = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "WE", 3) == 0)
+	else if (ft_strncmp(split[0], "WE", 3) == 0 && !textures->west)
 		textures->west = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "EA", 3) == 0)
+	else if (ft_strncmp(split[0], "EA", 3) == 0 && !textures->east)
 		textures->east = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "DOOR", 3) == 0)
+	else if (ft_strncmp(split[0], "DOOR", 5) == 0 && !textures->door)
 		textures->door = ft_strdup(split[1]);
-	else if (ft_strncmp(split[0], "F", 2) == 0)
+	else if (ft_strncmp(split[0], "F", 2) == 0 && cub3d->floor_color == -1)
 		cub3d->floor_color = parse_color(split[1], cub3d);
-	else if (ft_strncmp(split[0], "C", 2) == 0)
+	else if (ft_strncmp(split[0], "C", 2) == 0 && cub3d->ceiling_color == -1)
 		cub3d->ceiling_color = parse_color(split[1], cub3d);
 	else if (ft_strncmp(split[0], "S", 2) == 0)
 		parse_sprite(cub3d, split);
+	else
+		exit_error("Invalid/duplicate texture or color", cub3d);
 }
 
 static void	parse_texture_or_color(t_cub3d *cub3d, t_textures *textures,

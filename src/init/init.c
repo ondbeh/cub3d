@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:02:57 by obehavka          #+#    #+#             */
-/*   Updated: 2025/03/08 18:17:46 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/09 12:00:42 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	set_default_values(t_cub3d *cub3d)
 	cub3d->rotation_angle = BASE_ROTATION_ANGLE;
 	cub3d->map = NULL;
 	cub3d->map_lines = NULL;
-	cub3d->ceiling_color = 0;
-	cub3d->floor_color = 0;
+	cub3d->ceiling_color = -1;
+	cub3d->floor_color = -1;
 	cub3d->sprite_count = 0;
 	while (i < MAX_SPRITE_COUNT)
 		cub3d->sprites[i++] = NULL;
