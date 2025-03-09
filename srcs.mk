@@ -29,7 +29,8 @@ SRCS		=	main.c \
 				draw_sprites_helper.c \
 				minimap_utils.c \
 				calculate_rays_prep.c \
-				update_sprite.c
+				update_sprite.c \
+				check_file_extension.c
 
 VPATH		=	src/ \
 				src/init/ \

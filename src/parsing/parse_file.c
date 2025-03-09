@@ -6,7 +6,7 @@
 /*   By: kmuhlbau <kmuhlbau@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:49:35 by kmuhlbau          #+#    #+#             */
-/*   Updated: 2025/03/09 11:46:49 by kmuhlbau         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:51:44 by kmuhlbau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	parse_file(t_cub3d *cub3d, t_textures *textures, char *data_file)
 	int		fd;
 	int		parsing_map;
 
+	check_file_extension(data_file);
 	fd = open(data_file, O_RDONLY);
 	if (fd < 0)
 		exit_error("Failed to open map file", cub3d);
