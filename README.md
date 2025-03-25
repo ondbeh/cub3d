@@ -1,18 +1,22 @@
 # 🚀 Cub3D - 3D Raycasting Engine
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=bookstack)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/ondbeh/cub3d?style=for-the-badge&logo=github)](https://github.com/ondbeh/cub3d/stargazers)
+[![Issues](https://img.shields.io/github/issues/ondbeh/cub3d?style=for-the-badge&logo=github)](https://github.com/ondbeh/cub3d/issues)
+[![42 Project](https://img.shields.io/badge/42_Project-Cub3D-darkgreen?style=for-the-badge&logo=42)](https://42.fr/)
 
 > A 3D maze renderer using raycasting techniques inspired by Wolfenstein 3D
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Demo](#demo)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Contact](#contact)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Demo](#-demo)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Contributing](#-contributing)
+- [Contacts](#-contacts)
+- [License](#-license)
 
 ## 📖 Overview
 
@@ -96,6 +100,14 @@ The `.cub` file should contain:
 
 ## 📞 Contacts
 
-- [GitHub](https://github.com/ondbeh)
-- [Email](mailto:ondbeh@gmail.com)
-- [LinkedIn](https://www.linkedin.com/in/ondrej-behavka/)
+[![GitHub](https://img.shields.io/badge/GitHub-ondbeh-181717?style=for-the-badge&logo=github)](https://github.com/ondbeh)
+
+[![Email](https://img.shields.io/badge/Email-ondbeh@gmail.com-D14836?style=for-the-badge&logo=gmail)](mailto:ondbeh@gmail.com)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ondřej_Běhávka-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/ondrej-behavka/)
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [license](LICENSE) file for details.
